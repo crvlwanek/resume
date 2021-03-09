@@ -1,0 +1,48 @@
+.navbar {
+  position: absolute;
+}
+
+body {
+  margin: 0;
+}
+
+.banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+    url(../images/desk.jpg);
+}
+
+.avatar {
+  background-image: url(../images/chris.jpg);
+}
+
+.icon-bar {
+  padding-bottom: 20px;
+}
+
+svg.icon {
+  color: #394867;
+}
+
+.work-section {
+  background-color: #cfdac8;
+}
+
+.spasd {
+  background-image: url(../images/spasd.png);
+}
+
+.education-section {
+  background-color: #cfdac8;
+}
+
+.uwm {
+  background-image: url(../images/uwm.jpg);
+}
+
+.coursera {
+  background-image: url(../images/coursera.png);
+}
+
+.skills-section {
+  background-color: #cfdac8;
+}
