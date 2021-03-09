@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/reponame",
   siteMetadata: {
     title: `Chris Van Lanen-Wanek`,
     description: `A simple resume/portfolio website`,
