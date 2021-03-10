@@ -30,7 +30,7 @@ const databases = ["PostgreSQL", "MongoDB", "GraphQL", "REST APIs", "ORMs"]
 
 const SkillsSection = () => {
   return (
-    <GenericSection name="skills">
+    <GenericSection name="skills" bottom>
       <Container alignItems="center">
         <Typography className="subheading" variant="h6">
           Programming Languages

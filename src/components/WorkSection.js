@@ -3,16 +3,13 @@ import * as React from "react"
 import { Box, Typography, Grid } from "@material-ui/core"
 
 import GenericSection from "./GenericSection"
+import diffMonths from "../utils/diffMonths"
 
-const startDate = new Date("August 2020")
-const currentDate = new Date()
-var months = (currentDate.getFullYear() - startDate.getFullYear()) * 12
-months -= startDate.getMonth()
-months += currentDate.getMonth()
+const months = diffMonths(new Date("August 2020"), new Date())
 
 const WorkSection = () => {
   return (
-    <GenericSection name="work experience">
+    <GenericSection name="work">
       <Grid container direction="row">
         <Grid item>
           <Box className="spasd logo-img"></Box>

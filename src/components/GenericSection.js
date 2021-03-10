@@ -4,7 +4,12 @@ import { Container, Paper, Typography } from "@material-ui/core"
 
 const GenericSection = props => {
   return (
-    <section id={props.name} className="generic-section">
+    <section
+      id={props.name}
+      className={
+        props.bottom ? "generic-section bottom-section" : "generic-section"
+      }
+    >
       <Container className="container" maxWidth="md" alignItems="center">
         <Paper className="paper">
           <Typography variant="h5" className="header">

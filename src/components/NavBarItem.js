@@ -4,7 +4,7 @@ import * as React from "react"
 const NavBarItem = props => {
   return (
     <Grid item>
-      <Link href={"/#" + props.text.toLowerCase()}>
+      <Link href={window.location.pathname + "#" + props.text.toLowerCase()}>
         <Typography className="nav-text">{props.text}</Typography>
       </Link>
     </Grid>

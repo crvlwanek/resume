@@ -187,3 +187,24 @@ p.modal-header {
 .chip {
   margin: 5px;
 }
+
+.bottom-section {
+  padding-bottom: 40px;
+}
+
+/* Footer Section */
+footer {
+  background-color: #9ba4b4;
+  padding: 20px;
+}
+
+.footer-container {
+  text-align: center;
+  padding: 30px;
+}
+
+.footer-text {
+  color: #394867;
+  padding: 5px;
+  text-decoration: none;
+}

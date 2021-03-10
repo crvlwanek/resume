@@ -4,12 +4,9 @@ import { Typography, Grid, Box, Modal, Button } from "@material-ui/core"
 
 import GenericSection from "./GenericSection"
 import EdModal from "./EdModal"
+import diffMonths from "../utils/diffMonths"
 
-const startDate = new Date("October 2020")
-const currentDate = new Date()
-var months = (currentDate.getFullYear() - startDate.getFullYear()) * 12
-months -= startDate.getMonth()
-months += currentDate.getMonth()
+const months = diffMonths(new Date("October 2020"), new Date())
 
 const EducationSection = () => {
   // getModalStyle is not a pure function, we roll the style only on the first render
