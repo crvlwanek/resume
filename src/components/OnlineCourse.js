@@ -1,15 +1,10 @@
+import * as React from "react"
+
 import { Link, Typography, Box } from "@material-ui/core"
-import React from "react"
 
-const styles = {
-  box: {
-    padding: "4px 0",
-  },
-}
-
-export const OnlineCourse = props => {
+const OnlineCourse = props => {
   return (
-    <Box style={styles.box}>
+    <Box className="course-box">
       <Typography variant="body1">
         <Link target="_blank" href={props.link}>
           {props.courseName}
@@ -32,3 +27,5 @@ export const OnlineCourse = props => {
     </Box>
   )
 }
+
+export default OnlineCourse

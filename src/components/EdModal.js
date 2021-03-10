@@ -1,3 +1,5 @@
+import * as React from "react"
+
 import {
   Paper,
   Typography,
@@ -5,51 +7,28 @@ import {
   IconButton,
   Box,
 } from "@material-ui/core"
-import React from "react"
-import { OnlineCourse } from "./OnlineCourse"
 import CloseIcon from "@material-ui/icons/Close"
 
-const styles = {
-  paper: {
-    width: "75%",
-    margin: "auto",
-    padding: "20px",
-  },
-  box: {
-    position: "fixed",
-    right: "15%",
-    textAlign: "right",
-  },
-  header: {
-    textAlign: "center",
-    marginBottom: "20px",
-  },
-  body: {
-    textAlign: "center",
-  },
-  category: {
-    padding: "10px 0",
-  },
-}
+import OnlineCourse from "./OnlineCourse"
 
-export const EdModal = props => {
+const EdModal = props => {
   return (
-    <Paper style={styles.paper}>
-      <Box style={styles.box}>
+    <Paper className="modal-paper">
+      <Box className="modal-box">
         <IconButton onClick={props.close}>
           <CloseIcon />
         </IconButton>
       </Box>
 
-      <Typography variant="h4" style={styles.header}>
+      <Typography variant="h4" className="modal-header">
         Open Source Computer Science
       </Typography>
       <Container maxWidth="md">
-        <Typography style={styles.header}>
+        <Typography className="modal-header">
           A collection of online courses by reputable universities intended to
           satisfy the requirements of a traditional Bachelor's degree.
         </Typography>
-        <Typography style={styles.category} variant="h5">
+        <Typography className="category" variant="h5">
           Computer Science
         </Typography>
         <OnlineCourse
@@ -65,7 +44,7 @@ export const EdModal = props => {
           completed="December 2020"
           credential="https://coursera.org/share/390573ddd885e848273f6068548006ea"
         />
-        <Typography style={styles.category} variant="h5">
+        <Typography className="category" variant="h5">
           Programming
         </Typography>
         <OnlineCourse
@@ -103,7 +82,7 @@ export const EdModal = props => {
           completed="December 2020"
           credential="https://coursera.org/share/03d376ec4da4fbe0026837fa263b1362"
         />
-        <Typography style={styles.category} variant="h5">
+        <Typography className="category" variant="h5">
           Web Development
         </Typography>
         <OnlineCourse
@@ -141,7 +120,7 @@ export const EdModal = props => {
           completed="January 2020"
           credential="https://www.udemy.com/certificate/UC-85479198-e06a-4bb3-9052-d88becf54ed1/"
         />
-        <Typography style={styles.category} variant="h5">
+        <Typography className="category" variant="h5">
           Data Science
         </Typography>
         <OnlineCourse
@@ -183,3 +162,5 @@ export const EdModal = props => {
     </Paper>
   )
 }
+
+export default EdModal

@@ -1,11 +1,14 @@
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import * as React from "react"
+
+import { Box, Grid, Typography } from "@material-ui/core"
+
 import LinkedInIcon from "@material-ui/icons/LinkedIn"
 import GitHubIcon from "@material-ui/icons/GitHub"
 import FacebookIcon from "@material-ui/icons/Facebook"
 import InstagramIcon from "@material-ui/icons/Instagram"
 import YouTubeIcon from "@material-ui/icons/YouTube"
-import React from "react"
-import { IconBarItem } from "./IconBarItem"
+
+import IconBarItem from "./IconBarItem"
 
 const iconBarItems = [
   {
@@ -30,25 +33,14 @@ const iconBarItems = [
   },
 ]
 
-const useStyles = makeStyles({
-  nameText: {
-    textAlign: "center",
-  },
-  detailText: {
-    textAlign: "center",
-    paddingTop: "5px",
-  },
-})
-
-export const NameBlock = () => {
-  const classes = useStyles()
+const NameBlock = () => {
   return (
     <Box textAlign="center">
-      <Typography className={classes.nameText} variant="h4">
+      <Typography className="name-text" variant="h4">
         Chris Van Lanen-Wanek
       </Typography>
       <Typography
-        className={classes.detailText}
+        className="name-detail-text"
         variant="body1"
         color="textSecondary"
       >
@@ -68,3 +60,5 @@ export const NameBlock = () => {
     </Box>
   )
 }
+
+export default NameBlock

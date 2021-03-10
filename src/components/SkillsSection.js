@@ -1,28 +1,8 @@
-import { Container, Paper, Typography, Chip, Box } from "@material-ui/core"
-import React from "react"
+import * as React from "react"
 
-const styles = {
-  header: {
-    textAlign: "left",
-    marginLeft: "30px",
-  },
-  subheading: {
-    margin: "20px 0 0",
-  },
-  box: {
-    margin: "10px",
-  },
-  container: {
-    padding: "20px 0",
-  },
-  paper: {
-    textAlign: "center",
-    padding: "30px 10px 20px",
-  },
-  chip: {
-    margin: "5px",
-  },
-}
+import { Container, Typography, Chip, Box } from "@material-ui/core"
+
+import GenericSection from "./GenericSection"
 
 const programmingLanguages = [
   "Python",
@@ -48,42 +28,37 @@ const frameworks = [
 
 const databases = ["PostgreSQL", "MongoDB", "GraphQL", "REST APIs", "ORMs"]
 
-export const SkillsSection = () => {
+const SkillsSection = () => {
   return (
-    <section className="skills-section" id="skills">
-      <Container style={styles.container} maxWidth="md" alignItems="center">
-        <Paper style={styles.paper}>
-          <Typography variant="h5" style={styles.header}>
-            Skills
-          </Typography>
-          <Container alignItems="center">
-            <Typography style={styles.subheading} variant="h6">
-              Programming Languages
-            </Typography>
-            <Box style={styles.box}>
-              {programmingLanguages.map(lang => (
-                <Chip label={lang} color="primary" style={styles.chip} />
-              ))}
-            </Box>
-            <Typography style={styles.subheading} variant="h6">
-              Frameworks
-            </Typography>
-            <Box style={styles.box}>
-              {frameworks.map(f => (
-                <Chip label={f} color="primary" style={styles.chip} />
-              ))}
-            </Box>
-            <Typography style={styles.subheading} variant="h6">
-              Database Technologies
-            </Typography>
-            <Box style={styles.box}>
-              {databases.map(d => (
-                <Chip label={d} color="primary" style={styles.chip} />
-              ))}
-            </Box>
-          </Container>
-        </Paper>
+    <GenericSection name="skills">
+      <Container alignItems="center">
+        <Typography className="subheading" variant="h6">
+          Programming Languages
+        </Typography>
+        <Box className="chip-box">
+          {programmingLanguages.map(lang => (
+            <Chip key={lang} label={lang} color="primary" className="chip" />
+          ))}
+        </Box>
+        <Typography className="subheading" variant="h6">
+          Frameworks
+        </Typography>
+        <Box className="chip-box">
+          {frameworks.map(f => (
+            <Chip key={f} label={f} color="primary" className="chip" />
+          ))}
+        </Box>
+        <Typography className="subheading" variant="h6">
+          Database Technologies
+        </Typography>
+        <Box className="chip-box">
+          {databases.map(d => (
+            <Chip key={d} label={d} color="primary" className="chip" />
+          ))}
+        </Box>
       </Container>
-    </section>
+    </GenericSection>
   )
 }
+
+export default SkillsSection

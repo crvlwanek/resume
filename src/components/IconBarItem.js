@@ -1,7 +1,8 @@
-import { IconButton } from "@material-ui/core"
-import React from "react"
+import * as React from "react"
 
-export const IconBarItem = props => {
+import { IconButton } from "@material-ui/core"
+
+const IconBarItem = props => {
   const Icon = props.icon
   return (
     <IconButton href={props.link} target="_blank">
@@ -9,3 +10,5 @@ export const IconBarItem = props => {
     </IconButton>
   )
 }
+
+export default IconBarItem

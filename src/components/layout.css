@@ -1,18 +1,87 @@
+/* Header Section */
 .navbar {
   position: absolute;
 }
 
+.nav-margin {
+  display: flex;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+p.nav-text {
+  color: white;
+  font-size: 1.3rem;
+  filter: drop-shadow(2px 2px 2px black);
+}
+
+/* Body Section */
 body {
   margin: 0;
 }
 
 .banner {
+  align-items: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
     url(../images/desk.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  position: relative;
+}
+
+.stripe-box {
+  position: absolute;
+  padding: 0;
+  width: 100%;
+  top: 250px;
+}
+
+.top-stripe {
+  background-color: #14274e;
+  height: 70px;
+}
+
+.bottom-stripe {
+  background-color: #394867;
+  height: 40px;
+}
+
+.avatar-box {
+  max-width: none;
+  text-align: center;
+  position: relative;
+  bottom: 200px;
+  margin-bottom: -200px;
 }
 
 .avatar {
   background-image: url(../images/chris.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-color: white;
+  border-radius: 300px;
+  border-style: solid;
+  border-width: 3px;
+  filter: drop-shadow(3px 3px 4px black);
+  height: 300px;
+  position: relative;
+  width: 300px;
+}
+
+.name-text {
+  text-align: center;
+}
+
+.name-detail-text {
+  padding-top: 5px;
+  text-align: center;
 }
 
 .icon-bar {
@@ -23,26 +92,98 @@ svg.icon {
   color: #394867;
 }
 
-.work-section {
+/* Generic section */
+.generic-section {
   background-color: #cfdac8;
 }
 
+.container {
+  padding: 20px 0 0;
+}
+
+.paper {
+  padding: 30px 10px 10px;
+  text-align: center;
+}
+
+h5.header {
+  margin-left: 30px;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.logo-img {
+  height: 100px;
+  width: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 25px 25px 0;
+}
+
+div.detail-box {
+  margin: 20px;
+  text-align: left;
+}
+
+.bottom-line {
+  padding-bottom: 10px;
+}
+
+/* Work Section */
 .spasd {
   background-image: url(../images/spasd.png);
 }
 
-.education-section {
-  background-color: #cfdac8;
+/* Education Section */
+.coursera {
+  background-image: url(../images/coursera.png);
+}
+
+.modal {
+  margin: auto;
+  overflow: scroll;
+}
+
+.modal-paper {
+  width: 75%;
+  margin: auto;
+  padding: 20px;
+}
+
+.modal-box {
+  position: fixed;
+  right: 15%;
+  text-align: right;
+}
+
+h4.modal-header,
+p.modal-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.category {
+  padding: 10px 0;
+}
+
+.course-box {
+  padding: 4px 0;
 }
 
 .uwm {
   background-image: url(../images/uwm.jpg);
 }
 
-.coursera {
-  background-image: url(../images/coursera.png);
+/* Skills Section */
+.subheading {
+  margin: 20px 0 0;
 }
 
-.skills-section {
-  background-color: #cfdac8;
+.chip-box {
+  margin: 10px;
+}
+
+.chip {
+  margin: 5px;
 }

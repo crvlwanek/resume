@@ -1,21 +1,14 @@
-import { Grid, makeStyles, Typography, Link } from "@material-ui/core"
-import React from "react"
+import { Grid, Typography, Link } from "@material-ui/core"
+import * as React from "react"
 
-const useStyles = makeStyles({
-  text: {
-    color: "white",
-    fontSize: "1.3rem",
-    filter: `drop-shadow(2px 2px 2px black)`,
-  },
-})
-
-export const NavBarItem = props => {
-  const classes = useStyles()
+const NavBarItem = props => {
   return (
     <Grid item>
       <Link href={"/#" + props.text.toLowerCase()}>
-        <Typography className={classes.text}>{props.text}</Typography>
+        <Typography className="nav-text">{props.text}</Typography>
       </Link>
     </Grid>
   )
 }
+
+export default NavBarItem
