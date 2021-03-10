@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: "/reponame",
+  pathPrefix: "/cv",
   siteMetadata: {
     title: `Chris Van Lanen-Wanek`,
     description: `A simple resume/portfolio website`,
@@ -38,5 +38,6 @@ module.exports = {
     "react",
     "react-dom",
     "gatsby-plugin-material-ui",
+    "gatsby-image",
   ],
 }
