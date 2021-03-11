@@ -3,59 +3,31 @@ import * as React from "react"
 import { Container, Typography, Chip, Box } from "@material-ui/core"
 
 import GenericSection from "./GenericSection"
-
-const programmingLanguages = [
-  "Python",
-  "C++",
-  "JavaScript",
-  "HTML",
-  "CSS",
-  "SQL",
-  "JSON",
-]
-
-const frameworks = [
-  "Django REST Framework",
-  "React.js",
-  "Node.js",
-  "Redux.js",
-  "Bootstrap",
-  "Material-UI",
-  "Next.js",
-  "Chakra UI",
-  "Gatsby",
-]
-
-const databases = ["PostgreSQL", "MongoDB", "GraphQL", "REST APIs", "ORMs"]
+import siteData from "../site-data.json"
 
 const SkillsSection = () => {
   return (
     <GenericSection name="skills" bottom>
       <Container alignItems="center">
-        <Typography className="subheading" variant="h6">
-          Programming Languages
-        </Typography>
-        <Box className="chip-box">
-          {programmingLanguages.map(lang => (
-            <Chip key={lang} label={lang} className="chip" />
-          ))}
-        </Box>
-        <Typography className="subheading" variant="h6">
-          Frameworks
-        </Typography>
-        <Box className="chip-box">
-          {frameworks.map(f => (
-            <Chip key={f} label={f} className="chip" />
-          ))}
-        </Box>
-        <Typography className="subheading" variant="h6">
-          Database Technologies
-        </Typography>
-        <Box className="chip-box">
-          {databases.map(d => (
-            <Chip key={d} label={d} className="chip" />
-          ))}
-        </Box>
+        {siteData.skills.map(skill => (
+          <>
+            <Typography key={skill.name} className="subheading" variant="h6">
+              {skill.name}
+            </Typography>
+            <Box className="chip-box">
+              {skill.items.map(item => (
+                <Chip
+                  key={item}
+                  label={item}
+                  className="chip"
+                  component="a"
+                  href={`https://github.com/crvlwanek?tab=repositories&q=${item}&type=&language=`}
+                  clickable
+                />
+              ))}
+            </Box>
+          </>
+        ))}
       </Container>
     </GenericSection>
   )

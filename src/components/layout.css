@@ -185,10 +185,14 @@ h6.subheading {
   margin: 10px 10px 30px;
 }
 
-div.chip {
+a.chip {
   background-color: #14274e;
   color: white;
   margin: 5px;
+}
+
+a.chip:hover {
+  background-color: #394867;
 }
 
 .bottom-section {
