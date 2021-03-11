@@ -75,7 +75,8 @@ body {
   width: 300px;
 }
 
-.name-text {
+h4.name-text {
+  margin: 0 10px 0;
   text-align: center;
 }
 
