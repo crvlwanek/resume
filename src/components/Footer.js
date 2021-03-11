@@ -14,6 +14,11 @@ const Footer = () => {
         <Typography className="footer-text" variant="body1">
           Chris VL-Wanek © {new Date().getFullYear()}
         </Typography>
+        <Link href="https://github.com/crvlwanek/resume">
+          <Typography className="footer-text" variant="body1">
+            View the GitHub Repo
+          </Typography>
+        </Link>
         <Link href={path + "#"}>
           <Typography className="footer-text" variant="body1">
             Back to top
