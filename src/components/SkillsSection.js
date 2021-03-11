@@ -37,7 +37,7 @@ const SkillsSection = () => {
         </Typography>
         <Box className="chip-box">
           {programmingLanguages.map(lang => (
-            <Chip key={lang} label={lang} color="primary" className="chip" />
+            <Chip key={lang} label={lang} className="chip" />
           ))}
         </Box>
         <Typography className="subheading" variant="h6">
@@ -45,7 +45,7 @@ const SkillsSection = () => {
         </Typography>
         <Box className="chip-box">
           {frameworks.map(f => (
-            <Chip key={f} label={f} color="primary" className="chip" />
+            <Chip key={f} label={f} className="chip" />
           ))}
         </Box>
         <Typography className="subheading" variant="h6">
@@ -53,7 +53,7 @@ const SkillsSection = () => {
         </Typography>
         <Box className="chip-box">
           {databases.map(d => (
-            <Chip key={d} label={d} color="primary" className="chip" />
+            <Chip key={d} label={d} className="chip" />
           ))}
         </Box>
       </Container>

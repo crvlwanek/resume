@@ -94,7 +94,7 @@ svg.icon {
 
 /* Generic section */
 .generic-section {
-  background-color: #cfdac8;
+  background-color: #dedede;
 }
 
 .container {
@@ -176,15 +176,17 @@ p.modal-header {
 }
 
 /* Skills Section */
-.subheading {
+h6.subheading {
   margin: 20px 0 0;
 }
 
 .chip-box {
-  margin: 10px;
+  margin: 10px 10px 30px;
 }
 
-.chip {
+div.chip {
+  background-color: #14274e;
+  color: white;
   margin: 5px;
 }
 

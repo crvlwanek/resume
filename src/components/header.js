@@ -1,5 +1,7 @@
 import * as React from "react"
+
 import { AppBar, Container, Grid, Toolbar } from "@material-ui/core"
+
 import NavBarItem from "./NavBarItem"
 
 const Header = () => {
