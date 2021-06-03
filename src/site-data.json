@@ -1,4 +1,9 @@
 {
+  "nav": ["Work", "Education", "Skills"],
+  "splash": {
+    "name": "Chris Van Lanen-Wanek",
+    "jobTitle": "Software Engineer | Web Developer"
+  },
   "education": [
     {
       "name": "Computer Science",
