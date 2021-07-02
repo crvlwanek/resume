@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import theme from "../theme"
+
 import { setViewHeight } from "../utils/setViewHeight"
 
 interface HeroSplashProps {
@@ -30,7 +32,7 @@ const styles = {
     textAlign: "center" as "center",
   },
   splashText: {
-    color: "white",
+    color: theme.light1,
     fontFamily: "var(--hero__splash-text-font)",
     fontSize: "3rem",
     margin: 0,
@@ -38,13 +40,13 @@ const styles = {
   },
 }
 
-export const HeroSplash: React.FC<HeroSplashProps> = ({
+const HeroSplash: React.FC<HeroSplashProps> = ({
   children,
   image,
   splashText,
 }) => {
   return (
-    <section id="hero__">
+    <section id="hero">
       <div
         className="hero__splash"
         style={{
@@ -60,3 +62,5 @@ export const HeroSplash: React.FC<HeroSplashProps> = ({
     </section>
   )
 }
+
+export default HeroSplash

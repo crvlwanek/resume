@@ -4,10 +4,6 @@
   margin: 0;
 }
 
-:root {
-  --hover-color: #00adb5;
-}
-
 @media (min-width: 1025px) {
   .navbar__wrapper {
     padding: 15px 25px;
@@ -40,8 +36,11 @@
   height: 100vh;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .hero__splash {
     height: calc(var(--vh, 1vh) * 100);
+  }
+  .flexRowCol {
+    flex-direction: column;
   }
 }

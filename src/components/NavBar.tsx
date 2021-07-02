@@ -1,8 +1,12 @@
 import * as React from "react"
 
-import { Button } from "./Button"
+import theme from "../theme"
+
+import DesktopMenu from "./DesktopMenu"
+import MobileMenu from "./MobileMenu"
 
 interface NavBarProps {
+  customHover?: object
   leftMenu?: string[] | undefined
   rightMenu?: string[] | undefined
   siteTitle?: string | undefined
@@ -10,7 +14,7 @@ interface NavBarProps {
 
 const styles = {
   holder: {
-    color: "white",
+    color: theme.light1,
     position: "fixed" as "fixed",
     width: "100%",
     transition: "0.2s cubic-bezier(0.25, 0.1, 0.6, 0.54)",
@@ -18,12 +22,12 @@ const styles = {
   },
   navTop: {
     backgroundColor: "transparent",
-    borderColor: "white",
+    borderColor: theme.light1,
   },
   navScroll: {
-    backgroundColor: "white",
-    borderColor: "black",
-    color: "black",
+    backgroundColor: theme.light1,
+    borderColor: theme.dark1,
+    color: theme.dark1,
   },
   wrapper: {
     alignItems: "center",
@@ -31,38 +35,6 @@ const styles = {
     justifyContent: "space-between",
     margin: "0 auto",
     maxWidth: "1330px",
-  },
-  menu: {
-    width: "33.33%",
-  },
-  list: {
-    listStyle: "none",
-    listStyleImage: "none",
-    margin: 0,
-    padding: 0,
-  },
-  leftList: {
-    justifyContent: "flex-start",
-  },
-  rightList: {
-    justifyContent: "flex-end",
-  },
-  listItem: {
-    display: "inline-block",
-  },
-  listLink: {
-    backgroundColor: "transparent",
-    border: "1px solid transparent",
-    color: "inherit",
-    fontFamily: '"Roboto", sans-serif',
-    fontSize: "0.9rem",
-    margin: "0 15px",
-    outline: 0,
-    paddingTop: "10px",
-    paddingBottom: "10px",
-    textTransform: "uppercase" as "uppercase",
-    transition: "border-color 0.4s ease",
-    whiteSpace: "nowrap" as "nowrap",
   },
   logoLink: {
     color: "inherit",
@@ -75,16 +47,10 @@ const styles = {
     margin: 0,
     transition: "ease-in-out 0.2",
   },
-  hamburgerMenu: {
-    display: "flex",
-    flexDirection: "column" as "column",
-    justifyContent: "space-between",
-    height: "25px",
-    width: "30px",
-  },
 }
 
-export const NavBar: React.FC<NavBarProps> = ({
+const NavBar: React.FC<NavBarProps> = ({
+  customHover,
   leftMenu,
   rightMenu,
   siteTitle,
@@ -117,58 +83,23 @@ export const NavBar: React.FC<NavBarProps> = ({
       }}
     >
       <div style={styles.wrapper} className="navbar__wrapper">
-        <nav style={styles.menu}>
-          <ul
-            style={{ ...styles.list, ...styles.leftList }}
-            className="navbar__left-menu"
-          >
-            {leftMenu?.map(item => (
-              <li key={item} style={styles.listItem}>
-                <button aria-label={item} style={styles.listLink}>
-                  {item}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <DesktopMenu type="left" contents={leftMenu} />
         <a style={styles.logoLink} href="/">
           <h1 className="navbar__logo">{siteTitle}</h1>
         </a>
-        <nav style={styles.menu}>
-          <ul
-            style={{ ...styles.list, ...styles.rightList }}
-            className="navbar__right-menu"
-          >
-            {rightMenu?.map(item => (
-              <li key={item} style={styles.listItem}>
-                <Button
-                  ariaLabel={item}
-                  color="white"
-                  customStyles={styles.listLink}
-                  href={`#${item}`}
-                  linkStyle={{ color: "inherit" }}
-                  variant="transparent"
-                >
-                  {item}
-                </Button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className="navbar__mobile">
-          <span style={styles.hamburgerMenu}>
-            {[0, 1, 2].map(_ => (
-              <svg key={_} width="30" height="3">
-                <rect
-                  width="30"
-                  height="3"
-                  fill={scrollState === "top" ? "white" : "black"}
-                />
-              </svg>
-            ))}
-          </span>
-        </div>
+        <DesktopMenu
+          type="right"
+          contents={rightMenu}
+          customHover={customHover}
+        />
+        <MobileMenu
+          contents={rightMenu}
+          customHover={customHover}
+          scrollState={scrollState}
+        />
       </div>
     </div>
   )
 }
+
+export default NavBar

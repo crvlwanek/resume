@@ -1,13 +1,18 @@
 import * as React from "react"
 
+import theme from "../theme"
+
 interface IconButtonProps {
   background?: string
+  className?: string
   color?: string
   customActive?: object
   customHover?: object
   customStyles?: object
+  hoverColor?: string
   icon?: any
   link?: string
+  onClick?: any
   size?: number
 }
 
@@ -22,6 +27,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     margin: 5,
+    overflow: "hidden",
     padding: 8,
   },
   hover: {
@@ -32,14 +38,17 @@ const styles = {
   },
 }
 
-export const IconButton: React.FC<IconButtonProps> = ({
-  background = "eeebdd",
-  color = "eeebdd",
+const IconButton: React.FC<IconButtonProps> = ({
+  background = theme.dark1,
+  className,
+  color = theme.dark1,
   customActive,
   customHover,
   customStyles,
+  hoverColor,
   icon,
   link,
+  onClick,
   size = 35,
 }) => {
   const [hover, setHover] = React.useState(false)
@@ -47,19 +56,25 @@ export const IconButton: React.FC<IconButtonProps> = ({
 
   const Icon = icon
 
+  const useStyles = {
+    color,
+    ...styles.button,
+    height: size,
+    width: size,
+    ...(hover ? { background } : null),
+  }
+
   return (
     <a href={link} target="_blank">
       <button
+        className={className}
         style={{
-          ...styles.button,
-          background,
-          color,
-          height: size,
-          width: size,
+          ...useStyles,
           ...customStyles,
           ...(hover ? { ...styles.hover, ...customHover } : null),
           ...(active ? { ...styles.active, ...customActive } : null),
         }}
+        onClick={onClick}
         onMouseEnter={() => {
           setHover(true)
         }}
@@ -73,8 +88,10 @@ export const IconButton: React.FC<IconButtonProps> = ({
           setActive(false)
         }}
       >
-        <Icon fill={color} />
+        <Icon hoverColor={hoverColor} fill={!hover ? color : theme.light1} />
       </button>
     </a>
   )
 }
+
+export default IconButton

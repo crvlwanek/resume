@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import theme from "../theme"
+
 interface NameBlockProps {
   name: string
   title: string
@@ -7,8 +9,8 @@ interface NameBlockProps {
 
 const styles = {
   box: {
-    color: "white",
-    fontFamily: '"Montserrat", sans-serif',
+    color: theme.light1,
+    fontFamily: theme.font1,
   },
   name: {
     fontSize: "1.8rem",
@@ -20,7 +22,7 @@ const styles = {
   },
 }
 
-export const NameBlock: React.FC<NameBlockProps> = ({ name, title }) => {
+const NameBlock: React.FC<NameBlockProps> = ({ name, title }) => {
   return (
     <div style={styles.box}>
       <h1 style={styles.name}>{name}</h1>
@@ -28,3 +30,5 @@ export const NameBlock: React.FC<NameBlockProps> = ({ name, title }) => {
     </div>
   )
 }
+
+export default NameBlock

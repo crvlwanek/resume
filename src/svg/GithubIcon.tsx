@@ -4,10 +4,10 @@ interface GithubIconProps {
   fill: string
 }
 
-export const GithubIcon: React.FC<GithubIconProps> = ({ fill }) => {
+const GithubIcon: React.FC<GithubIconProps> = ({ fill }) => {
   return (
     <svg
-      enable-background="new 0 0 40 40"
+      enableBackground="new 0 0 40 40"
       fill={fill}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
@@ -16,3 +16,5 @@ export const GithubIcon: React.FC<GithubIconProps> = ({ fill }) => {
     </svg>
   )
 }
+
+export default GithubIcon

@@ -4,7 +4,7 @@ interface InstagramIconProps {
   fill: string
 }
 
-export const InstagramIcon: React.FC<InstagramIconProps> = ({ fill }) => {
+const InstagramIcon: React.FC<InstagramIconProps> = ({ fill }) => {
   return (
     <svg
       height="511pt"
@@ -19,3 +19,5 @@ export const InstagramIcon: React.FC<InstagramIconProps> = ({ fill }) => {
     </svg>
   )
 }
+
+export default InstagramIcon

@@ -1,5 +1,9 @@
 import * as React from "react"
 
+import theme from "../theme"
+
+import LinkWrapper from "./GenericWrapper"
+
 type Theme = "primary" | "secondary" | "light" | "dark"
 type ThemeColor = { [index: string]: string }
 type Variant = "solid" | "outlined" | "transparent"
@@ -26,11 +30,6 @@ interface ButtonProps {
   variant?: Variant
 }
 
-interface LinkWrapperProps {
-  condition: any
-  wrapper: any
-}
-
 const themeColors: ThemeColor = {
   primary: "#126e82",
   secondary: "#c72819",
@@ -46,7 +45,7 @@ const styles = {
     borderStyle: "solid",
     borderRadius: "7px",
     cursor: "pointer",
-    fontFamily: "var(--button__font)",
+    fontFamily: theme.font2,
     fontSize: "1rem",
     padding: "7px 16px",
     transition: "ease-in-out 0.2",
@@ -59,13 +58,7 @@ const styles = {
   },
 }
 
-const LinkWrapper: React.FC<LinkWrapperProps> = ({
-  condition,
-  wrapper,
-  children,
-}) => (condition ? wrapper(children) : children)
-
-export const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   ariaLabel,
   autofocus,
   children,
@@ -90,7 +83,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   const buttonColor = color || themeColors[theme]
   var fontColor = textColor || "black"
-  if (textColor === "match") {
+  if (textColor === "match" || variant === "transparent") {
     fontColor = buttonColor
   }
   const getStyles = (buttonColor: string, variant: Variant): Style => {
@@ -152,3 +145,5 @@ export const Button: React.FC<ButtonProps> = ({
     </LinkWrapper>
   )
 }
+
+export default Button

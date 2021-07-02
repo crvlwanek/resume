@@ -1,14 +1,17 @@
 import * as React from "react"
 
-import { IconButton } from "../components/IconButton"
+import IconButton from "../components/IconButton"
 
-import { LinkedInIcon } from "../svg/LinkedInIcon"
-import { GithubIcon } from "../svg/GithubIcon"
-import { FacebookIcon } from "../svg/FacebookIcon"
-import { InstagramIcon } from "../svg/InstagramIcon"
-import { YouTubeIcon } from "../svg/YouTubeIcon"
+import LinkedInIcon from "../svg/LinkedInIcon"
+import GithubIcon from "../svg/GithubIcon"
+import FacebookIcon from "../svg/FacebookIcon"
+import InstagramIcon from "../svg/InstagramIcon"
+import YouTubeIcon from "../svg/YouTubeIcon"
 
-interface IconBarProps {}
+interface IconBarProps {
+  customActive?: object
+  customHover?: object
+}
 
 const icons = [
   {
@@ -48,12 +51,19 @@ const styles = {
   },
 }
 
-export const IconBar: React.FC<IconBarProps> = ({ children }) => {
+const IconBar: React.FC<IconBarProps> = ({ children, customHover }) => {
   return (
     <div style={styles.bar}>
       {icons.map(icon => (
-        <IconButton icon={icon.component} link={icon.link} key={icon.name} />
+        <IconButton
+          customHover={customHover}
+          icon={icon.component}
+          link={icon.link}
+          key={icon.name}
+        />
       ))}
     </div>
   )
 }
+
+export default IconBar

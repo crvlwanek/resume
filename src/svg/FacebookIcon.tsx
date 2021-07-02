@@ -4,7 +4,7 @@ interface FacebookIconProps {
   fill: string
 }
 
-export const FacebookIcon: React.FC<FacebookIconProps> = ({ fill }) => {
+const FacebookIcon: React.FC<FacebookIconProps> = ({ fill }) => {
   return (
     <svg
       id="Capa_1"
@@ -19,3 +19,5 @@ export const FacebookIcon: React.FC<FacebookIconProps> = ({ fill }) => {
     </svg>
   )
 }
+
+export default FacebookIcon
