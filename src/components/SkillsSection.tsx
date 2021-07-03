@@ -11,7 +11,7 @@ interface SkillsSectionProps {}
 const styles = {
   description: {
     color: theme.textSecondary,
-    padding: "20px",
+    padding: "10px",
   },
   skillHeader: {
     fontWeight: 500,
