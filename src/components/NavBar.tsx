@@ -27,6 +27,7 @@ const styles = {
   navScroll: {
     backgroundColor: theme.light1,
     borderColor: theme.dark1,
+    boxShadow: "1px 1px 3px #888888",
     color: theme.dark1,
   },
   wrapper: {

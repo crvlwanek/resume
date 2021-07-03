@@ -27,7 +27,7 @@
       "endDate": "Present",
       "location": "Online",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Coursera-Logo_600x600.svg/1200px-Coursera-Logo_600x600.svg.png",
-      "online classes": [
+      "onlineClasses": [
         {
           "name": "Computer Science",
           "courses": [

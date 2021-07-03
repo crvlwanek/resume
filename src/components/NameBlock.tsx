@@ -14,6 +14,7 @@ const styles = {
   },
   name: {
     fontSize: "1.8rem",
+    fontWeight: 400,
     padding: "5px",
   },
   title: {

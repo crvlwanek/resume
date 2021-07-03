@@ -22,17 +22,16 @@ const styles = {
     textAlign: "left" as "left",
   },
   title: {
-    fontSize: "1.5rem",
-    fontWeight: 400,
+    fontSize: "1.6rem",
+    fontWeight: 500,
     padding: "3px 0",
   },
   subtitle: {
-    fontWeight: 100,
+    fontWeight: 400,
     padding: "7px 0",
   },
   detailText: {
     color: theme.textSecondary,
-    fontSize: "0.9rem",
     padding: "2px 0",
   },
   list: {

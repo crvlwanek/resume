@@ -14,10 +14,12 @@ interface ModalProps {
 const styles = {
   modal: {
     background: theme.light1,
+    borderRadius: "20px 0 0 20px",
     height: "93%",
     inset: "0",
     margin: "auto",
     maxWidth: "600px",
+    overflowY: "scroll" as "scroll",
     position: "fixed" as "fixed",
     width: "90%",
     zIndex: 3,

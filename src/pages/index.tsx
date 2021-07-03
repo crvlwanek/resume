@@ -11,6 +11,7 @@ import NameBlock from "../components/NameBlock"
 import IconBar from "../components/IconBar"
 import WorkSection from "../components/WorkSection"
 import EducationSection from "../components/EducationSection"
+import SkillsSection from "../components/SkillsSection"
 
 const splashImage =
   "https://images.unsplash.com/photo-1437419764061-2473afe69fc2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=890&q=80"
@@ -41,8 +42,7 @@ const IndexPage = () => {
       </HeroSplash>
       <WorkSection />
       <EducationSection />
-      <div style={{ height: "100vh", width: "100%", background: "red" }} />
-      <div style={{ height: "100vh", width: "100%", background: "blue" }} />
+      <SkillsSection />
     </>
   )
 }

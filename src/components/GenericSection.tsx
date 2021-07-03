@@ -11,6 +11,7 @@ interface GenericSectionProps {
 const styles = {
   genericSection: {
     background: theme.background1,
+    fontFamily: theme.font2,
     paddingLeft: "15px",
     paddingRight: "15px",
   },
@@ -35,6 +36,7 @@ const styles = {
   header: {
     fontFamily: theme.font1,
     fontSize: "1.8rem",
+    fontWeight: 600,
     marginLeft: "30px",
     textAlign: "left" as "left",
     textTransform: "capitalize" as "capitalize",

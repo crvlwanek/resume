@@ -33,8 +33,9 @@ const styles = {
   },
   splashText: {
     color: theme.light1,
-    fontFamily: "var(--hero__splash-text-font)",
+    fontFamily: theme.font1,
     fontSize: "3rem",
+    fontWeight: 400,
     margin: 0,
     width: "100%",
   },
