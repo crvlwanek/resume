@@ -31,14 +31,17 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       </p>
       {data.skills.map(skill => (
         <>
-          <h2 style={styles.skillHeader}>{skill.name}</h2>
-          <div style={styles.chipBox}>
+          <h2 key={skill.name} style={styles.skillHeader}>
+            {skill.name}
+          </h2>
+          <div key={skill.items[0]} style={styles.chipBox}>
             {skill.items.map(item => (
               <Button
                 color={theme.primary1}
                 href={`https://github.com/crvlwanek?tab=repositories&q=${item}`}
                 textColor={theme.light1}
                 customStyles={{ margin: "5px" }}
+                key={item}
               >
                 {item}
               </Button>

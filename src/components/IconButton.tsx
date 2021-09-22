@@ -88,7 +88,7 @@ const IconButton: React.FC<IconButtonProps> = ({
           setActive(false)
         }}
       >
-        <Icon hoverColor={hoverColor} fill={!hover ? color : theme.light1} />
+        <Icon hoverColor={hoverColor} fill={hover ? theme.light1 : color} />
       </button>
     </a>
   )

@@ -1,3 +1,4 @@
+import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 
 import theme from "../theme"
@@ -26,14 +27,14 @@ const Avatar: React.FC<AvatarProps> = ({
   size = "min(18rem, 80vw)",
 }) => {
   return (
-    <img
+    <StaticImage
+      alt=""
       style={{
         ...styles.avatar,
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),
-    url(${image})`,
         height: size,
         width: size,
       }}
+      src="../images/chris.jpg"
     />
   )
 }

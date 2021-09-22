@@ -32,7 +32,14 @@ const Footer: React.FC<FooterProps> = ({}) => {
         Chris VL-Wanek &copy; {new Date().getFullYear()}
       </p>
       <p style={styles.text}>
-        <a style={styles.link}>View the GitHub Repo</a>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          style={styles.link}
+          href="https://github.com/crvlwanek/resume"
+        >
+          View the GitHub Repo
+        </a>
       </p>
       <p style={styles.text}>
         <a style={styles.link} href="#">
