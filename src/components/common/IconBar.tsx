@@ -19,7 +19,10 @@ const IconBar: React.FC<IconBarProps> = ({ color }) => {
         <IconButton
           color={color}
           key={social.name}
+          component="a"
           href={social.link}
+          target="_blank"
+          rel="noreferrer"
           sx={{ ...primaryHover }}
           size={isMobile ? "small" : "medium"}
         >

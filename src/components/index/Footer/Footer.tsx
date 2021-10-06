@@ -20,7 +20,13 @@ const Footer: React.FC<FooterProps> = ({}) => {
       <Typography variant="body1" color={onSurface}>
         Chris VL-Wanek © {new Date().getFullYear()}
       </Typography>
-      <Link underline="hover" href={githubRepo} color={onSurface}>
+      <Link
+        underline="hover"
+        href={githubRepo}
+        color={onSurface}
+        target="_blank"
+        rel="noreferrer"
+      >
         View the GitHub repo
       </Link>
       <Link
