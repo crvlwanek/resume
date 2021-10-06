@@ -1,12 +1,11 @@
 import {
   Box,
   Button,
+  Divider,
   IconButton,
   Link,
   List,
   ListItem,
-  ListItemIcon,
-  ListItemText,
   Modal,
   Paper,
   Typography,
@@ -25,6 +24,7 @@ import {
   surface,
 } from "../../../../theme"
 import HeroSplash from "../../../common/HeroSplash"
+import CertificateIcon from "../../../../svg/CertificateIcon"
 
 interface EdModalProps {
   details: any
@@ -82,41 +82,53 @@ const EdModal: React.FC<EdModalProps> = ({ details }) => {
               Open Source Computer Science
             </Typography>
           </HeroSplash>
-          <Typography variant="body1" sx={{ textAlign: "center", padding: 2 }}>
-            A collection of online courses by reputable universities intended to
-            satisfy the requirements of a traditional Bachelor's degree in
-            Computer Science.
-          </Typography>
-          <Box paddingX={2}>
+          <Box px={2}>
+            <Typography variant="body2" pt={2} pb={1}>
+              A collection of online courses by reputable universities intended
+              to satisfy the requirements of a traditional Bachelor's degree in
+              Computer Science.
+            </Typography>
+            <Typography variant="subtitle2">
+              Click the course name to view the course or the icon to see the
+              completion certificate.
+            </Typography>
+          </Box>
+          <List disablePadding>
             {details?.map((category: CourseCategory) => (
-              <>
-                <Typography
-                  variant="h3"
-                  sx={{ paddingX: 2, overflow: "hidden" }}
-                >
+              <ListItem
+                sx={{
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                }}
+              >
+                <Typography variant="h5" sx={{ overflow: "hidden", pb: 1 }}>
                   {category.name}
                 </Typography>
-                <List>
-                  {category?.courses?.map(course => (
-                    <ListItem disablePadding>
-                      <IconButton
-                        href={course.credential as string}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <VerifiedIcon
-                          sx={{ ...primaryHover, color: onSurface }}
-                        />
-                      </IconButton>
-                      <Link href={course.link} sx={{ textDecoration: "none" }}>
-                        {course.courseName}
-                      </Link>
-                    </ListItem>
+                <List disablePadding sx={{ width: "100%" }}>
+                  {category?.courses?.map((course, index) => (
+                    <>
+                      {index ? <Divider /> : null}
+                      <ListItem disablePadding>
+                        <IconButton
+                          href={course.credential as string}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <CertificateIcon />
+                        </IconButton>
+                        <Link
+                          href={course.link}
+                          sx={{ textDecoration: "none" }}
+                        >
+                          {course.courseName}
+                        </Link>
+                      </ListItem>
+                    </>
                   ))}
                 </List>
-              </>
+              </ListItem>
             ))}
-          </Box>
+          </List>
         </Paper>
       </Modal>
     </>
