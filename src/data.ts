@@ -80,7 +80,10 @@ export const jobs: Job[] = [
     endDate: "Present",
     location: "Verona, Wisconsin",
     logo: "https://rm-core-production.s3.amazonaws.com/logos/3476/large_Epic.PNG",
-    responsibilities: [],
+    responsibilities: [
+      "Contributes to developing a fullstack web-based application for creating and maintaining Electronic Medical Records",
+      "Uses modern web technologies such as: C#, TypeScript, React",
+    ],
   },
   {
     title: "Digital Music Teacher",
@@ -117,7 +120,8 @@ export interface Degree {
   endDate: string
   location: string
   logo: string
-  details?: CourseCategory[]
+  details: string[]
+  additionalDetails?: CourseCategory[]
 }
 
 export const education: Degree[] = [
@@ -129,6 +133,10 @@ export const education: Degree[] = [
     location: "Online",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Coursera-Logo_600x600.svg/1200px-Coursera-Logo_600x600.svg.png",
     details: [
+      "A collection of online courses with the goal of fulfilling all requirements of a traditional Computer Science degree",
+      "Includes courses in: Computer Science, Programming, and Math, Web Development, Data Science",
+    ],
+    additionalDetails: [
       {
         name: "Computer Science",
         courses: [
@@ -294,6 +302,10 @@ export const education: Degree[] = [
     endDate: "May 2020",
     location: "Milwaukee, Wisconsin",
     logo: "https://uwm.edu/wp-content/uploads/2016/12/uwm-seo-logo.jpg",
+    details: [
+      "Recieved a degree in Music Education with a focus on Instrumental/General Music and Violin",
+      "Graduated with a 3.51 GPA",
+    ],
   },
 ]
 

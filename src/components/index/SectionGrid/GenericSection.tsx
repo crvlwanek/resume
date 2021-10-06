@@ -11,10 +11,10 @@ const GenericSection: React.FC<GenericSectionProps> = ({ children, name }) => {
   return (
     <Paper
       component="section"
-      sx={{ maxWidth: desktopMaxWidth, padding: 2, width: "100%" }}
+      sx={{ maxWidth: desktopMaxWidth, width: "100%" }}
     >
       <a id={name} style={{ position: "relative", top: "-90px" }}></a>
-      <Typography variant="h3" paddingX={1} overflow="hidden">
+      <Typography variant="h5" paddingX={2} pt={2}>
         {name[0].toUpperCase() + name.slice(1)}
       </Typography>
       {children}

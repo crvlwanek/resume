@@ -31,8 +31,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ open, toggleOpen }) => {
         <MenuMask onClick={toggleOpen}>
           <List
             sx={{
-              color: "secondary.contrastText",
-              bgcolor: "secondary.main",
+              color: "surface.contrastText",
+              bgcolor: "surface.main",
               width: "80vw",
               height: "100%",
               paddingLeft: 2,

@@ -1,10 +1,28 @@
-import { createTheme, PaletteColor, PaletteColorOptions } from "@mui/material"
+import { createTheme } from "@mui/material"
 
-export const primary = "#00adb5"
-export const onPrimary = "#f6f5f5"
+const colors = {
+  lightest: "#f6f5f5",
+  darkest: "#1b1717",
+  primary: "#00adb5",
+  surface: "#f6f5f5",
+  background: "#dddddd",
+}
+
+export const primary = colors.primary
+export const onPrimary = colors.lightest
+
+export const surface = colors.lightest
+export const onSurface = colors.darkest
+
 export const secondary = "#f6f5f5"
 export const onSecondary = "#1b1717"
-export const backgroundColor = "#dddddd"
+
+export const background = colors.background
+export const onBackground = colors.darkest
+
+export const imageOverlay = colors.lightest
+
+// TODO: Find another solution
 export const footerColor = "#bbbbbb"
 
 export const titleFont = ["Montserrat", "sans-serif"].join(", ")
@@ -26,9 +44,35 @@ export const logoSize = 100
 
 declare module "@mui/material/styles/createPalette" {
   interface PaletteOptions {
+    surface?: PaletteColorOptions
+    imageOverlay?: PaletteColorOptions
+    // TODO: remove
     dark?: PaletteColorOptions
   }
 }
+
+export type ThemeColorOverride = "surface" | "imageOverlay" | "dark"
+
+export type ThemeColor =
+  | "inherit"
+  | "default"
+  | "primary"
+  | "secondary"
+  | "error"
+  | "info"
+  | "success"
+  | "warning"
+  | undefined
+  | ThemeColorOverride
+
+export type AppBarColor =
+  | "default"
+  | "inherit"
+  | "primary"
+  | "secondary"
+  | "transparent"
+  | string
+  | ThemeColorOverride
 
 const theme = createTheme({
   palette: {
@@ -36,10 +80,17 @@ const theme = createTheme({
       main: primary,
       contrastText: onPrimary,
     },
-    secondary: {
-      main: secondary,
-      contrastText: onSecondary,
+    surface: {
+      main: surface,
+      contrastText: onSurface,
     },
+    background: {
+      default: background,
+    },
+    imageOverlay: {
+      main: imageOverlay,
+    },
+    // TODO: find a better solution
     dark: {
       main: onSecondary,
     },
@@ -47,36 +98,81 @@ const theme = createTheme({
   typography: {
     h1: {
       fontFamily: titleFont,
-      fontSize: "min(1.8rem, 5vw)",
-      fontWeight: 400,
+      fontWeight: 300,
+      fontSize: "5.125rem",
+      letterSpacing: "-0.094rem",
     },
     h2: {
       fontFamily: titleFont,
-      fontSize: "min(1.1rem, 3vw)",
-      fontWeight: 200,
+      fontWeight: 300,
+      fontSize: "3.188rem",
+      letterSpacing: "0.031rem",
     },
     h3: {
       fontFamily: titleFont,
-      fontSize: "1.8rem",
-      fontWeight: 600,
+      fontWeight: 400,
+      fontSize: "2.563rem",
+      letterSpacing: "0rem",
     },
     h4: {
       fontFamily: titleFont,
-      fontSize: "1.4rem",
-      fontWeight: 500,
-      lineHeight: 1.8,
+      fontWeight: 400,
+      fontSize: "1.813rem",
+      letterSpacing: "0.016rem",
     },
     h5: {
-      fontFamily: bodyFont,
-      fontSize: "1rem",
+      fontFamily: titleFont,
       fontWeight: 400,
-      lineHeight: 1.4,
+      fontSize: "1.313rem",
+      letterSpacing: "0rem",
+    },
+    h6: {
+      fontFamily: titleFont,
+      fontWeight: 500,
+      fontSize: "1.063rem",
+      letterSpacing: "0.009rem",
+    },
+    subtitle1: {
+      fontFamily: titleFont,
+      fontWeight: 400,
+      fontSize: "0.875rem",
+      letterSpacing: "0.009rem",
+    },
+    subtitle2: {
+      fontFamily: titleFont,
+      fontWeight: 400,
+      fontSize: "0.75rem",
+      letterSpacing: "0.006rem",
+    },
+    body1: {
+      fontFamily: bodyFont,
+      fontWeight: 400,
+      fontSize: "1rem",
+      letterSpacing: "0.031rem",
     },
     body2: {
       fontFamily: bodyFont,
-      fontSize: "1rem",
       fontWeight: 400,
-      color: "rgba(0, 0, 0, 0.54)",
+      fontSize: "0.875rem",
+      letterSpacing: "0.016rem",
+    },
+    button: {
+      fontFamily: bodyFont,
+      fontWeight: 500,
+      fontSize: "0.875rem",
+      letterSpacing: "0.078rem",
+    },
+    caption: {
+      fontFamily: bodyFont,
+      fontWeight: 400,
+      fontSize: "0.75rem",
+      letterSpacing: "0.025rem",
+    },
+    overline: {
+      fontFamily: bodyFont,
+      fontWeight: 400,
+      fontSize: "0.625rem",
+      letterSpacing: "0.094rem",
     },
   },
 })

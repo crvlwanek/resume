@@ -9,8 +9,8 @@ interface MyAvatarProps {
 
 const MyAvatar: React.FC<MyAvatarProps> = ({ src }) => {
   const isMobile: boolean = useIsMobile()
-  const size = isMobile ? "100px" : "18rem"
-  const borderWidth = isMobile ? "2px" : "6px"
+  const size = isMobile ? "200px" : "18rem"
+  const borderWidth = isMobile ? "3px" : "6px"
   return (
     <Avatar
       src={src}

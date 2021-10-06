@@ -9,26 +9,24 @@ interface DesktopMenuProps {}
 const DesktopMenu: React.FC<DesktopMenuProps> = ({}) => {
   return (
     <List sx={{ display: "flex", flexDirection: "row" }}>
-      {navbarMenu.map((item: NavbarMenuItem) => {
-        return (
-          <ListItemButton
-            key={item.name}
-            component="a"
-            href={item.link}
-            sx={{
-              ...primaryHover,
-            }}
-          >
-            <ListItemText
-              primary={item.name.toUpperCase()}
-              sx={{ marginRight: 1 }}
-            />
-            <ListItemIcon sx={{ minWidth: 0, color: "inherit" }}>
-              <item.icon />
-            </ListItemIcon>
-          </ListItemButton>
-        )
-      })}
+      {navbarMenu.map((item: NavbarMenuItem) => (
+        <ListItemButton
+          key={item.name}
+          component="a"
+          href={item.link}
+          sx={{
+            ...primaryHover,
+          }}
+        >
+          <ListItemText
+            primary={item.name.toUpperCase()}
+            sx={{ marginRight: 1 }}
+          />
+          <ListItemIcon sx={{ minWidth: 0, color: "inherit" }}>
+            <item.icon />
+          </ListItemIcon>
+        </ListItemButton>
+      ))}
     </List>
   )
 }

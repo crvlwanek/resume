@@ -4,23 +4,21 @@ import { Box, Typography } from "@mui/material"
 
 import { titleBlock } from "../../../data"
 
-import useIsMobile from "../../../hooks/useIsMobile"
-
 import IconBar from "../../common/IconBar"
+import useIsMobile from "../../../hooks/useIsMobile"
 
 interface TitleBlockProps {}
 
 const TitleBlock: React.FC<TitleBlockProps> = ({}) => {
   const isMobile: boolean = useIsMobile()
+  const iconBar__color = isMobile ? "dark" : "imageOverlay"
   return (
-    <Box pl={1} pt={1} textAlign={isMobile ? "left" : "center"}>
-      <Typography variant="h1" pl="5px" sx={{ overflow: "hidden" }}>
-        {titleBlock.name}
-      </Typography>
-      <Typography variant="h2" sx={{ overflow: "hidden", padding: "5px" }}>
+    <Box textAlign="center">
+      <Typography variant="h4">{titleBlock.name}</Typography>
+      <Typography variant="h6" sx={{ fontWeight: 200 }}>
         {titleBlock.jobTitle}
       </Typography>
-      <IconBar color="secondary" />
+      <IconBar color={iconBar__color} />
     </Box>
   )
 }

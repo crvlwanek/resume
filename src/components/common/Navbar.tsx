@@ -1,12 +1,9 @@
 import * as React from "react"
-import { AppBar, Toolbar } from "@mui/material"
-import { transition } from "../../theme"
+import { AppBar, Box, Toolbar } from "@mui/material"
+import { AppBarColor, transition } from "../../theme"
 import { IconLink } from "../../data"
 import useIsMobile from "../../hooks/useIsMobile"
 import useScrollAtTop from "../../hooks/useScrollAtTop"
-import FlexStart from "./FlexStart"
-import FlexCenter from "./FlexCenter"
-import FlexEnd from "./FlexEnd"
 
 export type NavbarMenuItem = IconLink
 
@@ -18,7 +15,7 @@ interface NavbarProps {
   rightContent?: any
   floatAtTop?: boolean
   menuOpen?: boolean
-  color?: "primary" | "secondary"
+  color?: AppBarColor
 }
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -45,10 +42,16 @@ const Navbar: React.FC<NavbarProps> = ({
       elevation={appBar__elevation}
       sx={{ transition, ...appBar__sx_floating }}
     >
-      <Toolbar sx={{ width: "100%", justifyContent: "space-between" }}>
-        <FlexStart>{leftContent}</FlexStart>
-        <FlexCenter>{centerContent}</FlexCenter>
-        <FlexEnd>{rightContent}</FlexEnd>
+      <Toolbar
+        sx={{
+          width: "100%",
+          justifyContent: "space-between",
+          maxWidth: "1330px",
+        }}
+      >
+        <Box className="navbar__leftContent">{leftContent}</Box>
+        <Box className="navbar__centerContent">{centerContent}</Box>
+        <Box className="navbar__rightContent">{rightContent}</Box>
       </Toolbar>
     </AppBar>
   )

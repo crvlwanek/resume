@@ -1,45 +1,31 @@
+import { Divider } from "@mui/material"
 import * as React from "react"
-
-import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material"
-
-import ArrowRightIcon from "@mui/icons-material/ArrowRight"
-
 import { Job, jobs } from "../../../../data"
-import { onSecondary } from "../../../../theme"
-
+import CardList from "../../../common/CardList"
+import ExpandableCard from "../ExpandableCard"
 import GenericSection from "../GenericSection"
-import ImageBox from "../ImageBox"
-import ImageBoxDetails from "../ImageBoxDetails"
+import TextList from "../TextList"
 
 interface WorkSectionProps {}
 
 const WorkSection: React.FC<WorkSectionProps> = ({}) => {
   return (
     <GenericSection name="work">
-      {jobs.map((job: Job) => (
-        <ImageBox src={job.logo}>
-          <ImageBoxDetails
-            title={job.title}
-            subtitle={job.employer}
-            startDate={job.startDate}
-            endDate={job.endDate}
-            location={job.location}
-          >
-            <List>
-              {job.responsibilities.map((res: string) => (
-                <ListItem alignItems="flex-start" sx={{ padding: 0 }}>
-                  <ListItemIcon
-                    sx={{ minWidth: 0, marginTop: "4px", color: onSecondary }}
-                  >
-                    <ArrowRightIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={res} />
-                </ListItem>
-              ))}
-            </List>
-          </ImageBoxDetails>
-        </ImageBox>
-      ))}
+      <CardList>
+        {jobs.map((job: Job, index: number) => (
+          <>
+            {index ? <Divider variant="inset" /> : null}
+            <ExpandableCard
+              image={job.logo}
+              title={job.title}
+              subtitle1={job.employer}
+              subtitle2={`${job.startDate} - ${job.endDate}`}
+              subtitle3={job.location}
+              details={<TextList items={job.responsibilities} />}
+            />
+          </>
+        ))}
+      </CardList>
     </GenericSection>
   )
 }

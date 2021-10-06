@@ -21,11 +21,13 @@ import SkillsSection from "../components/index/SectionGrid/SkillsSection/SkillsS
 import Footer from "../components/index/Footer/Footer"
 
 import avatarImage from "../images/chris.jpg"
+import Header from "../components/index/Header"
 
 const IndexPage = () => {
   const isMobile: boolean = useIsMobile()
   const [menuOpen, toggleMenuOpen] = useToggle()
-  const splashImageHeight = isMobile ? "200px" : "100vh"
+  const header__height = isMobile ? "auto" : "100vh"
+  const splashImage__height = isMobile ? "200px" : "100vh"
   const navbar__leftContent = isMobile ? (
     <MobileMenu open={menuOpen} toggleOpen={toggleMenuOpen} />
   ) : null
@@ -34,16 +36,21 @@ const IndexPage = () => {
     <PageBase>
       <Navbar
         floatAtTop
-        color="secondary"
+        color="surface"
         leftContent={navbar__leftContent}
         rightContent={navbar__rightConent}
       />
-      <HeroSplash src={deskImage} height={splashImageHeight}>
+      <Header height={header__height}>
+        <HeroSplash
+          src={deskImage}
+          height={splashImage__height}
+          sx={{ position: "absolute" }}
+        />
         <AvatarBox>
           <MyAvatar src={avatarImage} />
           <TitleBlock />
         </AvatarBox>
-      </HeroSplash>
+      </Header>
       <SectionGrid>
         <WorkSection />
         <EducationSection />

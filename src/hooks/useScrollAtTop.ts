@@ -1,6 +1,7 @@
 import * as React from "react"
 
 const scrollIsAtTop = (): boolean => {
+  if (typeof window === "undefined") return true
   return window?.scrollY < 10
 }
 

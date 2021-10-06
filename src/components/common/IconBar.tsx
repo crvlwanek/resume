@@ -3,10 +3,9 @@ import * as React from "react"
 import { Box, IconButton } from "@mui/material"
 
 import { SocialIcon, socialIcons } from "../../data"
-import { primaryHover } from "../../theme"
+import { primaryHover, ThemeColor } from "../../theme"
 
 import useIsMobile from "../../hooks/useIsMobile"
-import { ThemeColor } from "../../types/mui"
 
 interface IconBarProps {
   color: ThemeColor
@@ -24,7 +23,7 @@ const IconBar: React.FC<IconBarProps> = ({ color }) => {
           sx={{ ...primaryHover }}
           size={isMobile ? "small" : "medium"}
         >
-          <social.icon sx={{ fontSize: isMobile ? "15px" : null }} />
+          <social.icon />
         </IconButton>
       ))}
     </Box>

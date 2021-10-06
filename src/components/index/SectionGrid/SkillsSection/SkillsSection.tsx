@@ -1,7 +1,8 @@
 import * as React from "react"
-import { Box, Chip, Stack, Typography } from "@mui/material"
-import GenericSection from "../GenericSection"
+import { Box, Chip, Typography } from "@mui/material"
 import { Skill, skills } from "../../../../data"
+import PStack from "../../../common/PStack"
+import GenericSection from "../GenericSection"
 
 interface SkillsSectionProps {}
 
@@ -11,7 +12,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       <Typography variant="body2" sx={{ textAlign: "center", marginTop: 2 }}>
         Click on a keyword to view all of my projects that use that technology
       </Typography>
-      <Stack spacing={2} p={2}>
+      <PStack p={2}>
         {skills.map((skill: Skill) => (
           <Box alignItems="center" display="flex" flexDirection="column">
             <Typography variant="h4">{skill.name}</Typography>
@@ -39,7 +40,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </Box>
           </Box>
         ))}
-      </Stack>
+      </PStack>
     </GenericSection>
   )
 }

@@ -34,7 +34,7 @@ const EdModal: React.FC<EdModalProps> = ({ details }) => {
   const [open, toggleOpen, setOpenTrue, setOpenFalse] = useToggle()
   return (
     <>
-      <Button onClick={setOpenTrue} sx={{ ml: 1 }}>
+      <Button onClick={setOpenTrue} sx={{ mb: 2 }}>
         What's this?
       </Button>
       <Modal open={open} onClose={setOpenFalse}>

@@ -1,13 +1,19 @@
 import * as React from "react"
+import { MuiSxMixin } from "../../interfaces/mui"
 
 import FlexCenter from "./FlexCenter"
 
-interface HeroSplashProps {
+interface HeroSplashProps extends MuiSxMixin {
   height: string
   src: string
 }
 
-const HeroSplash: React.FC<HeroSplashProps> = ({ children, height, src }) => {
+const HeroSplash: React.FC<HeroSplashProps> = ({
+  children,
+  height,
+  src,
+  sx,
+}) => {
   return (
     <FlexCenter
       sx={{
@@ -20,6 +26,7 @@ const HeroSplash: React.FC<HeroSplashProps> = ({ children, height, src }) => {
         backgroundSize: "cover",
         color: "white",
         textShadow: "3px 3px 5px black",
+        ...sx,
       }}
     >
       {children}
