@@ -317,7 +317,18 @@ export interface Skill {
 export const skills: Skill[] = [
   {
     name: "Programming Languages",
-    items: ["Python", "C++", "JavaScript", "HTML", "CSS", "SQL", "JSON"],
+    items: [
+      "Python",
+      "C",
+      "C++",
+      "C#",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "TypeScript",
+      "SQL",
+      "JSON",
+    ],
   },
   {
     name: "Frontend Tech",

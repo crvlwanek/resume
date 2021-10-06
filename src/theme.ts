@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material"
 
 const colors = {
+  white: "#FFFFFF",
   lightest: "#f6f5f5",
   darkest: "#1b1717",
   primary: "#00adb5",
@@ -9,13 +10,10 @@ const colors = {
 }
 
 export const primary = colors.primary
-export const onPrimary = colors.lightest
+export const onPrimary = colors.white
 
 export const surface = colors.lightest
 export const onSurface = colors.darkest
-
-export const secondary = "#f6f5f5"
-export const onSecondary = "#1b1717"
 
 export const background = colors.background
 export const onBackground = colors.darkest
@@ -92,7 +90,7 @@ const theme = createTheme({
     },
     // TODO: find a better solution
     dark: {
-      main: onSecondary,
+      main: onSurface,
     },
   },
   typography: {

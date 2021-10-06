@@ -1,25 +1,26 @@
 import * as React from "react"
-
 import { Avatar } from "@mui/material"
 import useIsMobile from "../../../hooks/useIsMobile"
+import avatarImage from "../../../images/chris.jpg"
+import { MuiSxMixin } from "../../../interfaces/mui"
 
-interface MyAvatarProps {
-  src: string
+interface MyAvatarProps extends MuiSxMixin {
+  size: string
 }
 
-const MyAvatar: React.FC<MyAvatarProps> = ({ src }) => {
+const MyAvatar: React.FC<MyAvatarProps> = ({ size, sx }) => {
   const isMobile: boolean = useIsMobile()
-  const size = isMobile ? "200px" : "18rem"
   const borderWidth = isMobile ? "3px" : "6px"
   return (
     <Avatar
-      src={src}
+      src={avatarImage}
       sx={{
         height: size,
         width: size,
         borderColor: "white",
         borderStyle: "solid",
         borderWidth,
+        ...sx,
       }}
     />
   )

@@ -17,7 +17,7 @@ const EducationSection: React.FC<EducationSectionProps> = ({}) => {
         {education.map((degree, index) => (
           <>
             {/* TODO: Factor out */}
-            {index ? <Divider variant="inset" /> : null}
+            <Divider variant={index ? "inset" : "fullWidth"} />
             <ExpandableCard
               image={degree.logo}
               title={degree.institution}

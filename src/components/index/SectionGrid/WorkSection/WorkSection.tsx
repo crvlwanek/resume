@@ -14,7 +14,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({}) => {
       <CardList>
         {jobs.map((job: Job, index: number) => (
           <>
-            {index ? <Divider variant="inset" /> : null}
+            <Divider variant={index ? "inset" : "fullWidth"} />
             <ExpandableCard
               image={job.logo}
               title={job.title}

@@ -14,15 +14,15 @@ import {
 import CloseIcon from "@mui/icons-material/Close"
 import VerifiedIcon from "@mui/icons-material/Verified"
 import * as React from "react"
-import { Course, CourseCategory } from "../../../../data"
+import { CourseCategory } from "../../../../data"
 import useToggle from "../../../../hooks/useToggle"
 import {
   onPrimary,
-  onSecondary,
+  onSurface,
   primary,
   primaryHover,
-  secondary,
   studyImage,
+  surface,
 } from "../../../../theme"
 import HeroSplash from "../../../common/HeroSplash"
 
@@ -37,34 +37,36 @@ const EdModal: React.FC<EdModalProps> = ({ details }) => {
       <Button onClick={setOpenTrue} sx={{ mb: 2 }}>
         What's this?
       </Button>
+      {open ? (
+        <IconButton
+          onClick={setOpenFalse}
+          sx={{
+            position: "fixed",
+            top: "10px",
+            right: "10px",
+            color: onSurface,
+            backgroundColor: surface,
+            zIndex: 2000,
+            "&:hover": {
+              backgroundColor: primary,
+              color: onPrimary,
+            },
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      ) : null}
       <Modal open={open} onClose={setOpenFalse}>
         <Paper
           sx={{
-            background: secondary,
             height: "93%",
             inset: 0,
             margin: "auto",
             overflowY: "scroll",
-            maxWidth: "600px",
+            width: "min(600px, 93%)",
             position: "fixed",
           }}
         >
-          <IconButton
-            onClick={setOpenFalse}
-            sx={{
-              position: "fixed",
-              top: "10px",
-              right: "10px",
-              backgroundColor: secondary,
-              color: onSecondary,
-              "&:hover": {
-                backgroundColor: primary,
-                color: onPrimary,
-              },
-            }}
-          >
-            <CloseIcon />
-          </IconButton>
           <HeroSplash src={studyImage} height="225px">
             <Typography
               variant="h1"
@@ -103,7 +105,7 @@ const EdModal: React.FC<EdModalProps> = ({ details }) => {
                         rel="noreferrer"
                       >
                         <VerifiedIcon
-                          sx={{ color: onSecondary, ...primaryHover }}
+                          sx={{ ...primaryHover, color: onSurface }}
                         />
                       </IconButton>
                       <Link href={course.link} sx={{ textDecoration: "none" }}>

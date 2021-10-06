@@ -1,7 +1,7 @@
-import { Link, Stack, Typography } from "@mui/material"
 import * as React from "react"
+import { Link, Stack, Typography } from "@mui/material"
 import { githubRepo } from "../../../data"
-import { footerColor, onSecondary } from "../../../theme"
+import { footerColor, onSurface } from "../../../theme"
 import IconBar from "../../common/IconBar"
 
 interface FooterProps {}
@@ -16,13 +16,13 @@ const Footer: React.FC<FooterProps> = ({}) => {
       p={5}
     >
       <IconBar color="dark" />
-      <Typography variant="body2" color={onSecondary}>
+      <Typography variant="body2" color={onSurface}>
         Chris VL-Wanek © {new Date().getFullYear()}
       </Typography>
-      <Link underline="hover" href={githubRepo} color={onSecondary}>
+      <Link underline="hover" href={githubRepo} color={onSurface}>
         View the GitHub repo
       </Link>
-      <Link underline="hover" href="#" color={onSecondary}>
+      <Link underline="hover" href="#" color={onSurface}>
         Back to top
       </Link>
     </Stack>
