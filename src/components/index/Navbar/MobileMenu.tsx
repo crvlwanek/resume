@@ -9,6 +9,8 @@ import {
 } from "@mui/material"
 import { primaryHover, transition } from "../../../theme"
 import { navbarMenu, titleBlock } from "../../../data"
+import useToggle from "../../../hooks/useToggle"
+import smoothScroll from "../../../utils/smoothScroll"
 import { NavbarMenuItem } from "../../common/Navbar"
 import NavDrawer from "../../common/NavDrawer"
 import MyAvatar from "../AvatarBox/MyAvatar"
@@ -16,8 +18,9 @@ import MyAvatar from "../AvatarBox/MyAvatar"
 interface MobileMenuProps {}
 
 const MobileMenu: React.FC<MobileMenuProps> = () => {
+  const [open, toggleOpen] = useToggle()
   return (
-    <NavDrawer>
+    <NavDrawer open={open} toggleOpen={toggleOpen}>
       <List
         sx={{
           color: "surface.contrastText",
@@ -39,8 +42,10 @@ const MobileMenu: React.FC<MobileMenuProps> = () => {
         {navbarMenu.map((item: NavbarMenuItem) => (
           <ListItemButton
             key={item.name}
-            component="a"
-            href={item.link}
+            onClick={e => {
+              toggleOpen(e)
+              setTimeout(() => smoothScroll(item.name), 1)
+            }}
             sx={{ ...primaryHover, paddingRight: 5 }}
           >
             <ListItemIcon sx={{ color: "inherit" }}>

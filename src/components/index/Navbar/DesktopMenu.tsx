@@ -3,6 +3,7 @@ import { List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
 import { navbarMenu } from "../../../data"
 import { primaryHover } from "../../../theme"
 import { NavbarMenuItem } from "../../common/Navbar"
+import smoothScroll from "../../../utils/smoothScroll"
 
 interface DesktopMenuProps {}
 
@@ -12,8 +13,7 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({}) => {
       {navbarMenu.map((item: NavbarMenuItem) => (
         <ListItemButton
           key={item.name}
-          component="a"
-          href={item.link}
+          onClick={() => smoothScroll(item.name)}
           sx={{
             ...primaryHover,
           }}

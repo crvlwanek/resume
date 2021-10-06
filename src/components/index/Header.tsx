@@ -6,7 +6,11 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ height, children }) => {
-  return <Box height={height}>{children}</Box>
+  return (
+    <Box id="home" height={height}>
+      {children}
+    </Box>
+  )
 }
 
 export default Header
