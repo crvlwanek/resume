@@ -14,7 +14,7 @@ const GenericSection: React.FC<GenericSectionProps> = ({ children, name }) => {
       sx={{ maxWidth: desktopMaxWidth, width: "100%" }}
     >
       <a id={name} style={{ position: "relative", top: "-55px" }}></a>
-      <Typography variant="h5" paddingX={2} pt={2} pb={1}>
+      <Typography variant="h5" p={2}>
         {name[0].toUpperCase() + name.slice(1)}
       </Typography>
       {children}

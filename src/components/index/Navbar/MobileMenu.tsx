@@ -1,5 +1,6 @@
 import * as React from "react"
 import {
+  Box,
   Divider,
   List,
   ListItemButton,
@@ -22,23 +23,25 @@ const MobileMenu: React.FC<MobileMenuProps> = () => {
   return (
     <NavDrawer open={open} toggleOpen={toggleOpen}>
       <List
+        disablePadding
         sx={{
           color: "surface.contrastText",
           bgcolor: "surface.main",
           width: "80vw",
           height: "100%",
-          paddingLeft: 2,
           transition,
         }}
       >
-        <MyAvatar size="6rem" sx={{ mt: 1 }} />
-        <ListItemText disableTypography>
-          <Typography variant="h6">{titleBlock.name}</Typography>
-        </ListItemText>
-        <ListItemText disableTypography sx={{ pb: 1 }}>
-          <Typography variant="subtitle1">{titleBlock.jobTitle}</Typography>
-        </ListItemText>
-        <Divider />
+        <Box p={2}>
+          <MyAvatar size="6rem" sx={{ mb: 1 }} />
+          <ListItemText disableTypography sx={{ m: 0 }}>
+            <Typography variant="h6">{titleBlock.name}</Typography>
+          </ListItemText>
+          <ListItemText disableTypography sx={{ m: 0 }}>
+            <Typography variant="subtitle1">{titleBlock.jobTitle}</Typography>
+          </ListItemText>
+        </Box>
+        <Divider variant="fullWidth" sx={{ mb: 2 }} />
         {navbarMenu.map((item: NavbarMenuItem) => (
           <ListItemButton
             key={item.name}
@@ -46,7 +49,7 @@ const MobileMenu: React.FC<MobileMenuProps> = () => {
               toggleOpen(e)
               setTimeout(() => smoothScroll(item.name), 1)
             }}
-            sx={{ ...primaryHover, paddingRight: 5 }}
+            sx={{ ...primaryHover }}
           >
             <ListItemIcon sx={{ color: "inherit" }}>
               <item.icon />

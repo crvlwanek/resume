@@ -40,13 +40,13 @@ const Navbar: React.FC<NavbarProps> = ({
     <AppBar
       color={appBar__color}
       elevation={appBar__elevation}
-      sx={{ transition, ...appBar__sx_floating }}
+      sx={{ transition, ...appBar__sx_floating, alignItems: "center" }}
     >
       <Toolbar
         sx={{
           width: "100%",
           justifyContent: "space-between",
-          maxWidth: "1330px",
+          maxWidth: "1600px",
         }}
       >
         <Box className="navbar__leftContent">{leftContent}</Box>
