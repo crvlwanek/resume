@@ -1,7 +1,9 @@
 import * as React from "react"
-import { Box, Chip, IconButton, Link, Typography } from "@mui/material"
+import { Box, Button, Chip, IconButton, Link, Typography } from "@mui/material"
 import PublicIcon from "@mui/icons-material/Public"
+import MenuBookIcon from "@mui/icons-material/MenuBook"
 import useGitHub from "../hooks/useGitHub"
+import { primary } from "../theme"
 
 import githubColors from "../githubColors.json"
 
@@ -24,7 +26,7 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
     )}%`
   }
   return (
-    <div style={{ padding: "8px 16px" }}>
+    <div style={{ padding: "4px 16px" }}>
       <div
         style={{
           display: "flex",
@@ -34,21 +36,57 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
         }}
       >
         {repo?.homepage ? (
-          <IconButton target="_blank" href={repo?.homepage}>
+          <IconButton
+            target="_blank"
+            href={repo?.homepage}
+            sx={{
+              "&:hover": {
+                color: primary,
+              },
+            }}
+          >
             <PublicIcon />
           </IconButton>
         ) : null}
-        <Link underline="none" href={repo?.owner?.html_url}>
+        <Link
+          underline="none"
+          href={repo?.owner?.html_url}
+          sx={{
+            "&:hover": {
+              textDecoration: "underline",
+            },
+          }}
+        >
           <Typography variant="h5">{user}</Typography>
         </Link>
         <Typography variant="h5"> / </Typography>
-        <Link underline="none" href={repo?.html_url}>
-          <Typography variant="h5">{name}</Typography>
+        <Link
+          underline="none"
+          href={repo?.html_url}
+          sx={{
+            "&:hover": {
+              textDecoration: "underline",
+            },
+          }}
+        >
+          <Typography variant="h5" sx={{ fontWeight: 500 }}>
+            {name}
+          </Typography>
         </Link>
       </div>
-      <Typography variant="body1" p="16px 8px">
+      <Typography variant="body1" p="8px">
         {repo?.description}
       </Typography>
+      <Box sx={{ color: "gray" }} p="0 10px 8px">
+        <Button
+          component="a"
+          href={`${repo?.html_url}#readme`}
+          startIcon={<MenuBookIcon />}
+          color="inherit"
+        >
+          Readme
+        </Button>
+      </Box>
       <Box display="flex" flexWrap="wrap" alignItems="center" mb={2}>
         {repo?.topics?.map(topic => (
           <Chip
@@ -79,13 +117,21 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
         </div>
         <Box display="flex" flexWrap="wrap" alignItems="center" padding="4px">
           {Object.keys(percentages || {})?.map(percent => (
-            <div
-              style={{
+            <Link
+              href={`${repo?.html_url}/search?l=${percent}`}
+              target="_blank"
+              rel="noreferrer"
+              color="inherit"
+              underline="none"
+              sx={{
                 display: "flex",
                 alignItems: "baseline",
                 gap: "8px",
                 padding: "4px",
                 marginRight: "24px",
+                "&:hover": {
+                  textDecoration: "underline",
+                },
               }}
             >
               <div
@@ -100,7 +146,7 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
               <Typography variant="subtitle2">
                 {percentages[percent]}
               </Typography>
-            </div>
+            </Link>
           ))}
         </Box>
       </div>
