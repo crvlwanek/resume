@@ -9,13 +9,13 @@ import {
 import ArrowRightIcon from "@mui/icons-material/ArrowRight"
 
 interface TextListProps {
-  items: string[]
+  items?: string[]
 }
 
 const TextList: React.FC<TextListProps> = ({ items }) => {
   return (
     <List disablePadding sx={{ mb: 1 }}>
-      {items.map((item: string) => (
+      {items?.map((item: string) => (
         <ListItem alignItems="flex-start" sx={{ padding: 0 }}>
           <ListItemIcon
             sx={{

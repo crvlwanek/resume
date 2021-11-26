@@ -49,6 +49,12 @@ declare module "@mui/material/styles/createPalette" {
   }
 }
 
+declare module "@mui/material/AppBar" {
+  export interface AppBarPropsColorOverrides {
+    surface: string
+  }
+}
+
 export type ThemeColorOverride = "surface" | "imageOverlay" | "dark"
 
 export type ThemeColor =
@@ -69,7 +75,6 @@ export type AppBarColor =
   | "primary"
   | "secondary"
   | "transparent"
-  | string
   | ThemeColorOverride
 
 const theme = createTheme({

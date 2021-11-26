@@ -1,17 +1,16 @@
 import * as React from "react"
 import { imageOverlay, onSurface } from "../../../theme"
 import useIsMobile from "../../../hooks/useIsMobile"
-import PStack from "../../common/PStack"
+import { Stack } from "@mui/material"
 
-interface AvatarBoxProps {}
+interface MainTitleBoxProps {}
 
-const AvatarBox: React.FC<AvatarBoxProps> = ({ children }) => {
+const MainTitleBox: React.FC<MainTitleBoxProps> = ({ children }) => {
   const isMobile: boolean = useIsMobile()
   const color = isMobile ? onSurface : imageOverlay
   const margin = isMobile ? "32px 0 0" : "auto"
   return (
-    <PStack
-      p={1}
+    <Stack
       sx={{
         alignItems: "center",
         justifyContent: "center",
@@ -19,11 +18,12 @@ const AvatarBox: React.FC<AvatarBoxProps> = ({ children }) => {
         height: "100%",
         margin,
         color,
+        p: 1,
       }}
     >
       {children}
-    </PStack>
+    </Stack>
   )
 }
 
-export default AvatarBox
+export default MainTitleBox

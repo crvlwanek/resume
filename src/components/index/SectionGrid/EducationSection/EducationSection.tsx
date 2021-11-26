@@ -1,11 +1,12 @@
-import { Button, Divider } from "@mui/material"
 import * as React from "react"
 import { education } from "../../../../data"
+import dateRange from "../../../../utils/dateRange"
 import CardList from "../../../common/CardList"
 import FlexCenter from "../../../common/FlexCenter"
-import ExpandableCard from "../ExpandableCard"
+import IndexDivider from "../../../common/IndexDivider"
+import ExpandableCard from "../../../common/ExpandableCard"
 import GenericSection from "../GenericSection"
-import TextList from "../TextList"
+import TextList from "../../../common/TextList"
 import EdModal from "./EdModal"
 
 interface EducationSectionProps {}
@@ -16,16 +17,14 @@ const EducationSection: React.FC<EducationSectionProps> = ({}) => {
       <CardList>
         {education.map((degree, index) => (
           <>
-            {/* TODO: Factor out */}
-            <Divider variant={index ? "inset" : "fullWidth"} />
+            <IndexDivider index={index} />
             <ExpandableCard
               image={degree.logo}
               title={degree.institution}
               subtitle1={degree.degree}
-              // TODO: Factor out to a function
-              subtitle2={`${degree.startDate} - ${degree.endDate}`}
+              subtitle2={dateRange(degree.startDate, degree.endDate)}
               subtitle3={degree.location}
-              details={
+              DetailsComponent={
                 <>
                   <TextList items={degree.details} />
                   {degree.additionalDetails ? (

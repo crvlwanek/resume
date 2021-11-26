@@ -2,7 +2,7 @@ import * as React from "react"
 import { Box, Collapse, ListItemButton, Stack, Typography } from "@mui/material"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft"
-import useToggle from "../../../hooks/useToggle"
+import useToggle from "../../hooks/useToggle"
 
 interface ExpandableCardProps {
   image?: string
@@ -10,7 +10,8 @@ interface ExpandableCardProps {
   subtitle1?: string
   subtitle2?: string
   subtitle3?: string
-  details?: any
+  details?: string[]
+  DetailsComponent?: any
 }
 
 const ExpandableCard: React.FC<ExpandableCardProps> = ({
@@ -20,6 +21,7 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
   subtitle2,
   subtitle3,
   details,
+  DetailsComponent,
 }) => {
   const imageSize = 56
   const margin = 3
@@ -59,7 +61,7 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
         {open ? <KeyboardArrowDownIcon /> : <KeyboardArrowLeftIcon />}
       </ListItemButton>
       <Collapse in={open} timeout="auto">
-        {details}
+        {DetailsComponent}
       </Collapse>
     </>
   )

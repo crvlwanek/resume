@@ -1,6 +1,5 @@
 import * as React from "react"
 import { MuiSxMixin } from "../../interfaces/mui"
-
 import FlexCenter from "./FlexCenter"
 
 interface HeroSplashProps extends MuiSxMixin {

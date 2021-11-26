@@ -62,37 +62,48 @@ export const socialIcons: SocialIcon[] = [
   },
 ]
 
-export interface Job {
+export interface ProgrammingProject {
   title: string
-  employer: string
-  startDate: string
-  endDate: string | "current"
-  location: string
-  logo: string
-  responsibilities: string[]
+  link: string
+  githubRepo: string
 }
+
+export interface ExpandableCardData {
+  image?: string
+  title?: string
+  subtitle1?: string
+  subtitle2?: string
+  subtitle3?: string
+  startDate?: string
+  endDate?: string | "current"
+  details?: string[]
+}
+
+export interface Job extends ExpandableCardData {}
 
 export const jobs: Job[] = [
   {
+    image:
+      "https://rm-core-production.s3.amazonaws.com/logos/3476/large_Epic.PNG",
     title: "Software Developer",
-    employer: "Epic",
+    subtitle1: "Epic",
     startDate: "July 2021",
     endDate: "Present",
-    location: "Verona, Wisconsin",
-    logo: "https://rm-core-production.s3.amazonaws.com/logos/3476/large_Epic.PNG",
-    responsibilities: [
+    subtitle3: "Verona, Wisconsin",
+    details: [
       "Contributes to developing a fullstack web-based application for creating and maintaining Electronic Medical Records",
       "Uses modern web technologies such as: C#, TypeScript, React",
     ],
   },
   {
+    image:
+      "https://media-exp1.licdn.com/dms/image/C4E0BAQFzBgFUbk2bTA/company-logo_200_200/0/1579978292132?e=2159024400&v=beta&t=YP0cojkI9YIU_BDDRJRAKiouHJDAgKAWm9sKEGQ6I50",
     title: "Digital Music Teacher",
-    employer: "Sun Prairie Area School District",
+    subtitle1: "Sun Prairie Area School District",
     startDate: "August 2020",
     endDate: "June 2021",
-    location: "Sun Prairie, Wisconsin",
-    logo: "https://media-exp1.licdn.com/dms/image/C4E0BAQFzBgFUbk2bTA/company-logo_200_200/0/1579978292132?e=2159024400&v=beta&t=YP0cojkI9YIU_BDDRJRAKiouHJDAgKAWm9sKEGQ6I50",
-    responsibilities: [
+    subtitle3: "Sun Prairie, Wisconsin",
+    details: [
       "Worked with a team to design and develop new and innovative curriculum for distance learning",
       "Automated many daily tasks such as taking attendance and grading assignments with Python",
       "Built a fullstack web application in order to host student music portfolios",
@@ -145,6 +156,8 @@ export const education: Degree[] = [
             school: "Harvard",
             link: "https://www.edx.org/course/cs50s-introduction-to-computer-science",
             completed: "October 2020",
+            credential:
+              "https://certificates.cs50.io/c4b27126-5bd9-4e31-bdf1-1405977ccf27.pdf?size=letter",
           },
           {
             courseName: "Mathematical Thinking in Computer Science",

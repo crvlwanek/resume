@@ -1,19 +1,18 @@
 import * as React from "react"
-import { Box, Chip, Divider, List, ListItem, Typography } from "@mui/material"
+import { Box, Chip, List, ListItem, Typography } from "@mui/material"
 import { Skill, skills } from "../../../../data"
+import IndexDivider from "../../../common/IndexDivider"
 import GenericSection from "../GenericSection"
-import useIsMobile from "../../../../hooks/useIsMobile"
 
 interface SkillsSectionProps {}
 
 const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
-  const isMobile: boolean = useIsMobile()
   return (
     <GenericSection name="skills">
       <List disablePadding>
         {skills.map((skill: Skill, index) => (
           <>
-            <Divider variant={index ? "inset" : "fullWidth"} />
+            <IndexDivider index={index} />
             <ListItem sx={{ flexDirection: "column" }}>
               <Typography variant="h6" sx={{ alignSelf: "flex-start" }}>
                 {skill.name}
@@ -23,7 +22,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                   display="flex"
                   flexWrap="wrap"
                   alignItems="center"
-                  justifyContent={isMobile ? "center" : "flex-start"}
+                  justifyContent="center"
                 >
                   {skill.items.map(item => (
                     <Chip

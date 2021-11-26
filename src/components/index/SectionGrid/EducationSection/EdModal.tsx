@@ -119,6 +119,8 @@ const EdModal: React.FC<EdModalProps> = ({ details }) => {
                         <Link
                           href={course.link}
                           sx={{ textDecoration: "none" }}
+                          target="_blank"
+                          rel="noreferrer"
                         >
                           {course.courseName}
                         </Link>

@@ -1,11 +1,14 @@
 import * as React from "react"
 import { AppBar, Box, Toolbar } from "@mui/material"
+import { SvgIconComponent } from "@mui/icons-material"
 import { AppBarColor, transition } from "../../theme"
-import { IconLink } from "../../data"
-import useIsMobile from "../../hooks/useIsMobile"
 import useScrollAtTop from "../../hooks/useScrollAtTop"
 
-export type NavbarMenuItem = IconLink
+export interface NavbarMenuItem {
+  name: string
+  link: string
+  icon: SvgIconComponent
+}
 
 export type NavbarMenu = NavbarMenuItem[]
 
@@ -13,8 +16,7 @@ interface NavbarProps {
   leftContent?: any
   centerContent?: any
   rightContent?: any
-  floatAtTop?: boolean
-  menuOpen?: boolean
+  transparentAtTop?: boolean
   color?: AppBarColor
 }
 
@@ -22,20 +24,16 @@ const Navbar: React.FC<NavbarProps> = ({
   leftContent,
   centerContent,
   rightContent,
-  floatAtTop,
-  menuOpen,
+  transparentAtTop,
   color = "primary",
 }) => {
-  const isMobile: boolean = useIsMobile()
-  const mobileMenuOpen: boolean = isMobile && !!menuOpen
-  var isFloating: boolean = false
-  if (floatAtTop) {
-    const scrollAtTop: boolean = useScrollAtTop()
-    isFloating = scrollAtTop && !mobileMenuOpen
+  var isTransparent: boolean = false
+  if (transparentAtTop) {
+    isTransparent = useScrollAtTop()
   }
-  const appBar__color = isFloating ? "transparent" : color
-  const appBar__elevation = isFloating ? 0 : 2
-  const appBar__sx_floating = isFloating ? { color: "white" } : null
+  const appBar__color = isTransparent ? "transparent" : color
+  const appBar__elevation = isTransparent ? 0 : 2
+  const appBar__sx_floating = isTransparent ? { color: "white" } : null
   return (
     <AppBar
       color={appBar__color}

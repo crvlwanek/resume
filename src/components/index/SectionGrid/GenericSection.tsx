@@ -1,7 +1,6 @@
 import * as React from "react"
 
 import { Paper, Typography } from "@mui/material"
-import { desktopMaxWidth } from "../../../theme"
 
 interface GenericSectionProps {
   name: string
@@ -9,10 +8,7 @@ interface GenericSectionProps {
 
 const GenericSection: React.FC<GenericSectionProps> = ({ children, name }) => {
   return (
-    <Paper
-      component="section"
-      sx={{ maxWidth: desktopMaxWidth, width: "100%" }}
-    >
+    <Paper component="section" sx={{ width: "100%" }}>
       <a id={name} style={{ position: "relative", top: "-55px" }}></a>
       <Typography variant="h5" p={2}>
         {name[0].toUpperCase() + name.slice(1)}

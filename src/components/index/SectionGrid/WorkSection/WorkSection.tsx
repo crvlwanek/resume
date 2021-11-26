@@ -1,10 +1,11 @@
-import { Divider } from "@mui/material"
 import * as React from "react"
-import { Job, jobs } from "../../../../data"
+import { jobs } from "../../../../data"
+import dateRange from "../../../../utils/dateRange"
 import CardList from "../../../common/CardList"
-import ExpandableCard from "../ExpandableCard"
+import IndexDivider from "../../../common/IndexDivider"
+import ExpandableCard from "../../../common/ExpandableCard"
 import GenericSection from "../GenericSection"
-import TextList from "../TextList"
+import TextList from "../../../common/TextList"
 
 interface WorkSectionProps {}
 
@@ -12,16 +13,16 @@ const WorkSection: React.FC<WorkSectionProps> = ({}) => {
   return (
     <GenericSection name="work">
       <CardList>
-        {jobs.map((job: Job, index: number) => (
+        {jobs.map((job, index) => (
           <>
-            <Divider variant={index ? "inset" : "fullWidth"} />
+            <IndexDivider index={index} />
             <ExpandableCard
-              image={job.logo}
+              image={job.image}
               title={job.title}
-              subtitle1={job.employer}
-              subtitle2={`${job.startDate} - ${job.endDate}`}
-              subtitle3={job.location}
-              details={<TextList items={job.responsibilities} />}
+              subtitle1={job.subtitle1}
+              subtitle2={dateRange(job.startDate, job.endDate)}
+              subtitle3={job.subtitle3}
+              DetailsComponent={<TextList items={job.details} />}
             />
           </>
         ))}
