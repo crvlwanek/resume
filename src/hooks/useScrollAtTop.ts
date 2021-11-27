@@ -6,7 +6,7 @@ const scrollIsAtTop = (): boolean => {
 }
 
 const useScrollAtTop = () => {
-  const [scrollAtTop, setScrollAtTop] = React.useState(scrollIsAtTop())
+  const [scrollAtTop, setScrollAtTop] = React.useState(true)
   const listener = () => {
     if (scrollIsAtTop()) {
       setScrollAtTop(true)
@@ -14,6 +14,10 @@ const useScrollAtTop = () => {
       setScrollAtTop(false)
     }
   }
+
+  React.useEffect(() => {
+    setScrollAtTop(scrollIsAtTop())
+  }, [])
 
   React.useEffect(() => {
     window?.addEventListener("scroll", listener)

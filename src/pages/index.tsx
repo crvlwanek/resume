@@ -29,9 +29,16 @@ const IndexPage = () => {
   const header__height = isMobile ? "auto" : "100vh"
   const splashImage__height = isMobile ? "200px" : "100vh"
   const navbar__leftContent = isMobile ? <MobileMenu /> : null
-  const navbar__centerContent = !titleInView ? (
-    <TitleBlock headerVariant="h6" subheaderVariant="subtitle2" />
-  ) : null
+  const navbar__centerContent = (
+    <TitleBlock
+      headerVariant="h6"
+      subheaderVariant="subtitle2"
+      wrapperSx={{
+        display: titleInView ? "none" : "block",
+      }}
+    />
+  )
+
   const navbar__rightConent = !isMobile ? <DesktopMenu /> : null
   return (
     <PageWrapper>

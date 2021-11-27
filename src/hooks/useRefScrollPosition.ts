@@ -5,7 +5,7 @@ const refScrollPosition = (ref: React.RefObject<HTMLSpanElement>): boolean => {
 }
 
 const useRefScrollPosition = (ref: React.RefObject<HTMLSpanElement>) => {
-  const [refInView, setRefInView] = React.useState(refScrollPosition(ref))
+  const [refInView, setRefInView] = React.useState(false)
   const listener = () => {
     if (refScrollPosition(ref)) {
       setRefInView(true)
@@ -13,6 +13,10 @@ const useRefScrollPosition = (ref: React.RefObject<HTMLSpanElement>) => {
       setRefInView(false)
     }
   }
+
+  React.useEffect(() => {
+    setRefInView(refScrollPosition(ref))
+  }, [])
 
   React.useEffect(() => {
     window?.addEventListener("scroll", listener)

@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import { Variant } from "@mui/material/styles/createTypography"
 import * as React from "react"
 import { titleBlock } from "../../data"
@@ -10,6 +10,7 @@ interface TitleBlockProps {
   subheaderVariant?: Variant
   subheaderSx?: SxPropsTheme
   titleRef?: React.RefObject<HTMLSpanElement>
+  wrapperSx?: SxPropsTheme
 }
 
 const TitleBlock: React.FC<TitleBlockProps> = ({
@@ -18,16 +19,17 @@ const TitleBlock: React.FC<TitleBlockProps> = ({
   subheaderVariant = "h6",
   subheaderSx = {},
   titleRef,
+  wrapperSx = {},
 }) => {
   return (
-    <>
+    <Box sx={wrapperSx}>
       <Typography ref={titleRef} variant={headerVariant} sx={headerSx}>
         {titleBlock.name}
       </Typography>
       <Typography variant={subheaderVariant} sx={subheaderSx}>
         {titleBlock.jobTitle}
       </Typography>
-    </>
+    </Box>
   )
 }
 
