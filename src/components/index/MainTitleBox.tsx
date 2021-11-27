@@ -1,6 +1,6 @@
 import * as React from "react"
-import { imageOverlay, onSurface } from "../../../theme"
-import useIsMobile from "../../../hooks/useIsMobile"
+import { imageOverlay, onSurface } from "../../theme"
+import useIsMobile from "../../hooks/useIsMobile"
 import { Stack } from "@mui/material"
 
 interface MainTitleBoxProps {}

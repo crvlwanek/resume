@@ -1,11 +1,11 @@
-import * as React from "react"
-import { Box, Typography } from "@mui/material"
+import { Box } from "@mui/material"
 import { Variant } from "@mui/material/styles/createTypography"
-import { titleBlock } from "../../../data"
-import { MuiSxMixin, SxPropsTheme } from "../../../interfaces/mui"
-import MyAvatar from "../AvatarBox/MyAvatar"
+import * as React from "react"
+import { SxPropsTheme } from "../../interfaces/mui"
+import MyAvatar from "./MyAvatar"
+import TitleBlock from "./TitleBlock"
 
-interface AvatarTitleBlockProps extends MuiSxMixin {
+interface AvatarTitleBlockProps {
   boxSx?: SxPropsTheme
   avatarSize?: string
   avatarSx?: SxPropsTheme
@@ -13,6 +13,7 @@ interface AvatarTitleBlockProps extends MuiSxMixin {
   headerSx?: SxPropsTheme
   subheaderVariant?: Variant
   subheaderSx?: SxPropsTheme
+  titleRef?: React.RefObject<HTMLSpanElement>
 }
 
 const AvatarTitleBlock: React.FC<AvatarTitleBlockProps> = ({
@@ -23,16 +24,18 @@ const AvatarTitleBlock: React.FC<AvatarTitleBlockProps> = ({
   headerSx = {},
   subheaderVariant = "h6",
   subheaderSx = {},
+  titleRef,
 }) => {
   return (
     <Box sx={boxSx}>
       <MyAvatar size={avatarSize} sx={avatarSx} />
-      <Typography variant={headerVariant} sx={headerSx}>
-        {titleBlock.name}
-      </Typography>
-      <Typography variant={subheaderVariant} sx={subheaderSx}>
-        {titleBlock.jobTitle}
-      </Typography>
+      <TitleBlock
+        headerVariant={headerVariant}
+        headerSx={headerSx}
+        subheaderVariant={subheaderVariant}
+        subheaderSx={subheaderSx}
+        titleRef={titleRef}
+      />
     </Box>
   )
 }

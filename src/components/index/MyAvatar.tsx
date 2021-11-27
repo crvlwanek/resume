@@ -1,8 +1,8 @@
 import * as React from "react"
 import { Avatar } from "@mui/material"
-import useIsMobile from "../../../hooks/useIsMobile"
-import avatarImage from "../../../images/chris.jpg"
-import { MuiSxMixin } from "../../../interfaces/mui"
+import useIsMobile from "../../hooks/useIsMobile"
+import avatarImage from "../../images/chris.jpg"
+import { MuiSxMixin } from "../../interfaces/mui"
 
 interface MyAvatarProps extends MuiSxMixin {
   size: string

@@ -2,10 +2,10 @@ import * as React from "react"
 import { Box, Button, Chip, IconButton, Link, Typography } from "@mui/material"
 import PublicIcon from "@mui/icons-material/Public"
 import MenuBookIcon from "@mui/icons-material/MenuBook"
-import useGitHub from "../hooks/useGitHub"
-import { primary } from "../theme"
+import useGitHub from "../../../../hooks/useGitHub"
+import { primary } from "../../../../theme"
 
-import githubColors from "../githubColors.json"
+import githubColors from "../../../../githubColors.json"
 
 interface GitHubRepoProps {
   name: string
@@ -98,6 +98,7 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
             sx={{
               margin: "4px",
             }}
+            key={topic}
             label={topic}
             color="primary"
           />
@@ -107,6 +108,7 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
         <div style={{ borderRadius: "20px", display: "flex" }}>
           {Object.keys(percentages || {})?.map(percent => (
             <div
+              key={percent}
               style={{
                 width: percentages[percent],
                 height: "10px",
@@ -123,6 +125,7 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
               rel="noreferrer"
               color="inherit"
               underline="none"
+              key={percent}
               sx={{
                 display: "flex",
                 alignItems: "baseline",

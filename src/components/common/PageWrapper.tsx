@@ -3,9 +3,9 @@ import { ThemeProvider } from "@emotion/react"
 import { CssBaseline } from "@mui/material"
 import theme from "../../theme"
 
-interface PageBaseProps {}
+interface PageWrapperProps {}
 
-const PageBase: React.FC<PageBaseProps> = ({ children }) => {
+const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
   return (
     <CssBaseline>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
@@ -13,4 +13,4 @@ const PageBase: React.FC<PageBaseProps> = ({ children }) => {
   )
 }
 
-export default PageBase
+export default PageWrapper

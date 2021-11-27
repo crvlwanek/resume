@@ -25,8 +25,10 @@ const NavList: React.FC<NavListProps> = ({
       <List sx={{ display: "flex", flexDirection: direction }}>
         {items.map(item => (
           <ListItemButton
+            key={item.name}
             href={item.link}
-            sx={{ color: "inherit", ...primaryHover }}
+            sx={{ color: "inherit", ...primaryHover, m: "0 8px" }}
+            disableGutters
           >
             <ListItemIcon
               sx={{ color: "inherit", minWidth: padded ? null : 0, mr: 1 }}

@@ -11,7 +11,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
     <GenericSection name="skills">
       <List disablePadding>
         {skills.map((skill: Skill, index) => (
-          <>
+          <div key={skill.name}>
             <IndexDivider index={index} />
             <ListItem sx={{ flexDirection: "column" }}>
               <Typography variant="h6" sx={{ alignSelf: "flex-start" }}>
@@ -26,6 +26,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                 >
                   {skill.items.map(item => (
                     <Chip
+                      key={item}
                       component="a"
                       target="_blank"
                       rel="noreferrer"
@@ -41,7 +42,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                 </Box>
               </Box>
             </ListItem>
-          </>
+          </div>
         ))}
       </List>
     </GenericSection>

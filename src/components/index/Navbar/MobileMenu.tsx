@@ -4,9 +4,9 @@ import { primaryHover } from "../../../theme"
 import { navbarMenu, titleBlock } from "../../../data"
 import useToggle from "../../../hooks/useToggle"
 import NavDrawer from "../../common/NavDrawer"
-import MyAvatar from "../AvatarBox/MyAvatar"
+import MyAvatar from "../MyAvatar"
 import NavList from "../../common/NavList"
-import AvatarTitleBlock from "../TitleBlock/AvatarTitleBlock"
+import AvatarTitleBlock from "../AvatarTitleBlock"
 
 interface MobileMenuProps {}
 
