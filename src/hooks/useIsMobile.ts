@@ -6,4 +6,9 @@ const useIsMobile = (): boolean => {
   return useMediaQuery(theme.breakpoints.down("sm"))
 }
 
+export const useMediumDown = (): boolean => {
+  const theme = useTheme()
+  return useMediaQuery(theme.breakpoints.down("md"))
+}
+
 export default useIsMobile

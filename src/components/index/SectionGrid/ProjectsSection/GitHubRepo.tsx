@@ -26,15 +26,8 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
     )}%`
   }
   return (
-    <div style={{ padding: "4px 16px" }}>
-      <div
-        style={{
-          display: "flex",
-          gap: "8px",
-          padding: "4px",
-          alignItems: "center",
-        }}
-      >
+    <Box p={2}>
+      <Box display="flex" gap={2} alignItems="center">
         {repo?.homepage ? (
           <IconButton
             target="_blank"
@@ -73,11 +66,11 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
             {name}
           </Typography>
         </Link>
-      </div>
-      <Typography variant="body1" p="8px">
+      </Box>
+      <Typography variant="body1" p={2}>
         {repo?.description}
       </Typography>
-      <Box sx={{ color: "gray" }} p="0 10px 8px">
+      <Box sx={{ color: "gray" }} px={2}>
         <Button
           component="a"
           href={`${repo?.html_url}#readme`}
@@ -87,7 +80,7 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
           Readme
         </Button>
       </Box>
-      <Box display="flex" flexWrap="wrap" alignItems="center" mb={2}>
+      <Box display="flex" flexWrap="wrap" alignItems="center" py={2} gap={1}>
         {repo?.topics?.map(topic => (
           <Chip
             component="a"
@@ -95,29 +88,31 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
             rel="noreferrer"
             clickable
             href={`https://github.com/crvlwanek?tab=repositories&q=${topic}`}
-            sx={{
-              margin: "4px",
-            }}
             key={topic}
             label={topic}
             color="primary"
           />
         ))}
       </Box>
-      <div style={{ width: "min(400px, 100%)", padding: "4px" }}>
-        <div style={{ borderRadius: "20px", display: "flex" }}>
+      <Box width="min(400px, 100%)">
+        <Box display="flex" borderRadius="20px">
           {Object.keys(percentages || {})?.map(percent => (
-            <div
+            <Box
+              width={percentages[percent]}
+              height="10px"
+              bgcolor={githubColors[percent].color}
               key={percent}
-              style={{
-                width: percentages[percent],
-                height: "10px",
-                background: githubColors[percent].color,
-              }}
-            ></div>
+            />
           ))}
-        </div>
-        <Box display="flex" flexWrap="wrap" alignItems="center" padding="4px">
+        </Box>
+        <Box
+          display="flex"
+          flexWrap="wrap"
+          alignItems="center"
+          padding="4px"
+          gap={3}
+          rowGap={0}
+        >
           {Object.keys(percentages || {})?.map(percent => (
             <Link
               href={`${repo?.html_url}/search?l=${percent}`}
@@ -131,20 +126,17 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
                 alignItems: "baseline",
                 gap: "8px",
                 padding: "4px",
-                marginRight: "24px",
                 "&:hover": {
                   textDecoration: "underline",
                 },
               }}
             >
-              <div
-                style={{
-                  height: "10px",
-                  width: "10px",
-                  borderRadius: "100%",
-                  background: githubColors[percent].color,
-                }}
-              ></div>
+              <Box
+                height="10px"
+                width="10px"
+                borderRadius="100%"
+                bgcolor={githubColors[percent].color}
+              />
               <Typography variant="body2">{percent}</Typography>
               <Typography variant="subtitle2">
                 {percentages[percent]}
@@ -152,8 +144,8 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
             </Link>
           ))}
         </Box>
-      </div>
-    </div>
+      </Box>
+    </Box>
   )
 }
 

@@ -2,7 +2,7 @@ import * as React from "react"
 import { AppBar, Box, Toolbar } from "@mui/material"
 import { SvgIconComponent } from "@mui/icons-material"
 import { AppBarColor, transition } from "../../theme"
-import useScrollAtTop from "../../hooks/useScrollAtTop"
+import useScrollPosition from "../../hooks/useScrollPosition"
 
 export interface NavbarMenuItem {
   name: string
@@ -29,7 +29,10 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
   var isTransparent: boolean = false
   if (transparentAtTop) {
-    isTransparent = useScrollAtTop()
+    isTransparent = useScrollPosition((): boolean => {
+      if (typeof window === "undefined") return true
+      return window?.scrollY < 10
+    }, null)
   }
   const appBar__color = isTransparent ? "transparent" : color
   const appBar__elevation = isTransparent ? 0 : 2

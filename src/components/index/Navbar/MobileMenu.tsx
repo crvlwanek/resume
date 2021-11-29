@@ -1,10 +1,9 @@
+import { Divider } from "@mui/material"
 import * as React from "react"
-import { Box, Divider, Typography } from "@mui/material"
-import { primaryHover } from "../../../theme"
-import { navbarMenu, titleBlock } from "../../../data"
+import { navbarMenu } from "../../../data"
 import useToggle from "../../../hooks/useToggle"
+import { primaryHover } from "../../../theme"
 import NavDrawer from "../../common/NavDrawer"
-import MyAvatar from "../MyAvatar"
 import NavList from "../../common/NavList"
 import AvatarTitleBlock from "../AvatarTitleBlock"
 

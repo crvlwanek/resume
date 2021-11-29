@@ -27,8 +27,7 @@ const NavList: React.FC<NavListProps> = ({
           <ListItemButton
             key={item.name}
             href={item.link}
-            sx={{ color: "inherit", ...primaryHover, m: "0 8px" }}
-            disableGutters
+            sx={{ color: "inherit", ...primaryHover }}
           >
             <ListItemIcon
               sx={{ color: "inherit", minWidth: padded ? null : 0, mr: 1 }}

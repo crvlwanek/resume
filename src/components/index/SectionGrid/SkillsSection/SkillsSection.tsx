@@ -22,7 +22,8 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                   display="flex"
                   flexWrap="wrap"
                   alignItems="center"
-                  justifyContent="center"
+                  gap={1}
+                  py={2}
                 >
                   {skill.items.map(item => (
                     <Chip
@@ -32,11 +33,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
                       rel="noreferrer"
                       clickable
                       href={`https://github.com/crvlwanek?tab=repositories&q=${item}`}
-                      sx={{
-                        margin: 1,
-                      }}
                       label={item}
-                      color="primary"
                     />
                   ))}
                 </Box>

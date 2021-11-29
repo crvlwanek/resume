@@ -17,18 +17,23 @@ import WorkSection from "../components/index/SectionGrid/WorkSection/WorkSection
 import AvatarTitleBlock from "../components/index/AvatarTitleBlock"
 import TitleBlock from "../components/index/TitleBlock"
 import ProjectsSection from "../components/index/SectionGrid/ProjectsSection"
-import useIsMobile from "../hooks/useIsMobile"
-import useRefScrollPosition from "../hooks/useRefScrollPosition"
+import useIsMobile, { useMediumDown } from "../hooks/useIsMobile"
 import "../styles/styles.css"
 import { background, deskImage } from "../theme"
+import useScrollPosition from "../hooks/useScrollPosition"
 
 const IndexPage = () => {
-  const isMobile: boolean = useIsMobile()
+  const isMobile = useIsMobile()
+  const isMediumDown = useMediumDown()
   const titleRef = React.useRef<HTMLSpanElement>(null)
-  const titleInView: boolean = useRefScrollPosition(titleRef)
+  const titleInView = useScrollPosition(
+    (ref: React.RefObject<HTMLSpanElement>): boolean =>
+      (ref?.current?.getBoundingClientRect().y || 0) > 20,
+    titleRef
+  )
   const header__height = isMobile ? "auto" : "100vh"
-  const splashImage__height = isMobile ? "200px" : "100vh"
-  const navbar__leftContent = isMobile ? <MobileMenu /> : null
+  const splashImage__height = isMobile ? "min(200px, 90vw)" : "100vh"
+  const navbar__leftContent = isMediumDown ? <MobileMenu /> : null
   const navbar__centerContent = (
     <TitleBlock
       headerVariant="h6"
@@ -39,7 +44,7 @@ const IndexPage = () => {
     />
   )
 
-  const navbar__rightConent = !isMobile ? <DesktopMenu /> : null
+  const navbar__rightConent = !isMediumDown ? <DesktopMenu /> : null
   return (
     <PageWrapper>
       <Navbar
@@ -58,7 +63,7 @@ const IndexPage = () => {
         <MainTitleBox>
           <AvatarTitleBlock
             boxSx={{ textAlign: "center" }}
-            avatarSize={isMobile ? "200px" : "18rem"}
+            avatarSize={isMobile ? "min(200px, 90vw)" : "18rem"}
             avatarSx={{ margin: "auto" }}
             headerSx={{ mt: 1 }}
             subheaderSx={{ fontWeight: 200 }}
