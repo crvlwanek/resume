@@ -15,8 +15,12 @@ interface TextListProps {
 const TextList: React.FC<TextListProps> = ({ items }) => {
   return (
     <List disablePadding sx={{ mb: 1 }}>
-      {items?.map((item: string) => (
-        <ListItem alignItems="flex-start" sx={{ padding: 0 }}>
+      {items?.map((item: string, index: number) => (
+        <ListItem
+          alignItems="flex-start"
+          sx={{ padding: 0 }}
+          key={`${item}${index}`}
+        >
           <ListItemIcon
             sx={{
               minWidth: 0,

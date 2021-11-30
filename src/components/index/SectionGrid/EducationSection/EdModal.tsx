@@ -1,3 +1,4 @@
+import CloseIcon from "@mui/icons-material/Close"
 import {
   Box,
   Button,
@@ -10,28 +11,25 @@ import {
   Paper,
   Typography,
 } from "@mui/material"
-import CloseIcon from "@mui/icons-material/Close"
-import VerifiedIcon from "@mui/icons-material/Verified"
 import * as React from "react"
 import { CourseCategory } from "../../../../data"
 import useToggle from "../../../../hooks/useToggle"
+import CertificateIcon from "../../../../svg/CertificateIcon"
 import {
   onPrimary,
   onSurface,
   primary,
-  primaryHover,
   studyImage,
   surface,
 } from "../../../../theme"
 import HeroSplash from "../../../common/HeroSplash"
-import CertificateIcon from "../../../../svg/CertificateIcon"
 
 interface EdModalProps {
   details: any
 }
 
 const EdModal: React.FC<EdModalProps> = ({ details }) => {
-  const [open, toggleOpen, setOpenTrue, setOpenFalse] = useToggle()
+  const [open, _, setOpenTrue, setOpenFalse] = useToggle()
   return (
     <>
       <Button onClick={setOpenTrue} sx={{ mb: 2 }}>
@@ -100,13 +98,14 @@ const EdModal: React.FC<EdModalProps> = ({ details }) => {
                   flexDirection: "column",
                   alignItems: "flex-start",
                 }}
+                key={category.name}
               >
                 <Typography variant="h5" sx={{ overflow: "hidden", pb: 1 }}>
                   {category.name}
                 </Typography>
                 <List disablePadding sx={{ width: "100%" }}>
                   {category?.courses?.map((course, index) => (
-                    <>
+                    <div key={course.courseName}>
                       {index ? <Divider /> : null}
                       <ListItem disablePadding>
                         <IconButton
@@ -125,7 +124,7 @@ const EdModal: React.FC<EdModalProps> = ({ details }) => {
                           {course.courseName}
                         </Link>
                       </ListItem>
-                    </>
+                    </div>
                   ))}
                 </List>
               </ListItem>

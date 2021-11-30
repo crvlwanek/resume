@@ -14,7 +14,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({}) => {
     <GenericSection name="work">
       <CardList>
         {jobs.map((job, index) => (
-          <>
+          <div key={job.title}>
             <IndexDivider index={index} />
             <ExpandableCard
               image={job.image}
@@ -24,7 +24,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({}) => {
               subtitle3={job.subtitle3}
               DetailsComponent={<TextList items={job.details} />}
             />
-          </>
+          </div>
         ))}
       </CardList>
     </GenericSection>

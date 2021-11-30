@@ -16,7 +16,7 @@ const EducationSection: React.FC<EducationSectionProps> = ({}) => {
     <GenericSection name="education">
       <CardList>
         {education.map((degree, index) => (
-          <>
+          <div key={degree.degree}>
             <IndexDivider index={index} />
             <ExpandableCard
               image={degree.logo}
@@ -35,7 +35,7 @@ const EducationSection: React.FC<EducationSectionProps> = ({}) => {
                 </>
               }
             />
-          </>
+          </div>
         ))}
       </CardList>
     </GenericSection>

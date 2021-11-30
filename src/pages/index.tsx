@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material"
+import { Box, Grid, Slide } from "@mui/material"
 import * as React from "react"
 import FlexCenter from "../components/common/FlexCenter"
 import HeroSplash from "../components/common/HeroSplash"
@@ -28,22 +28,26 @@ const IndexPage = () => {
   const titleRef = React.useRef<HTMLSpanElement>(null)
   const titleInView = useScrollPosition(
     (ref: React.RefObject<HTMLSpanElement>): boolean =>
-      (ref?.current?.getBoundingClientRect().y || 0) > 20,
+      (ref?.current?.getBoundingClientRect().y || 0) < 0,
     titleRef
+  )
+  const titleContent = (
+    <Slide in={titleInView} mountOnEnter unmountOnExit>
+      <Box>
+        <TitleBlock
+          headerVariant="h6"
+          subheaderVariant="subtitle2"
+          wrapperSx={{
+            ml: isMediumDown ? 0 : 2,
+          }}
+        />
+      </Box>
+    </Slide>
   )
   const header__height = isMobile ? "auto" : "100vh"
   const splashImage__height = isMobile ? "min(200px, 90vw)" : "100vh"
-  const navbar__leftContent = isMediumDown ? <MobileMenu /> : null
-  const navbar__centerContent = (
-    <TitleBlock
-      headerVariant="h6"
-      subheaderVariant="subtitle2"
-      wrapperSx={{
-        display: titleInView ? "none" : "block",
-      }}
-    />
-  )
-
+  const navbar__leftContent = isMediumDown ? <MobileMenu /> : titleContent
+  const navbar__centerContent = isMediumDown ? titleContent : null
   const navbar__rightConent = !isMediumDown ? <DesktopMenu /> : null
   return (
     <PageWrapper>

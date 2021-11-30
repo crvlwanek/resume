@@ -18,6 +18,7 @@ interface NavbarProps {
   rightContent?: any
   transparentAtTop?: boolean
   color?: AppBarColor
+  ref?: React.RefObject<HTMLDivElement>
 }
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -26,6 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({
   rightContent,
   transparentAtTop,
   color = "primary",
+  ref,
 }) => {
   var isTransparent: boolean = false
   if (transparentAtTop) {
@@ -39,6 +41,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const appBar__sx_floating = isTransparent ? { color: "white" } : null
   return (
     <AppBar
+      ref={ref}
       color={appBar__color}
       elevation={appBar__elevation}
       sx={{ transition, ...appBar__sx_floating, alignItems: "center" }}
