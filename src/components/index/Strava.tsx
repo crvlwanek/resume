@@ -94,17 +94,18 @@ const Strava: React.FC<StravaProps> = ({}) => {
       >
         <Box>
           <Box px={2} py={1}>
-            <Typography variant="h5">Most Recent Activity</Typography>
-            <Typography variant="subtitle2">
-              {formatDate(start_date)}
-            </Typography>
+            <Box display="flex" flexDirection="row" alignItems="center">
+              {icon}
+              <Box ml={1}>
+                <Typography variant="h5">{name}</Typography>
+                <Typography variant="subtitle2">
+                  {formatDate(start_date)}
+                </Typography>
+              </Box>
+            </Box>
           </Box>
           <Divider />
           <Box px={2} py={1}>
-            <Box display="flex" flexDirection="row" alignItems="center">
-              {icon}
-              <Typography variant="h5">{name}</Typography>
-            </Box>
             <Box display="flex" gap={2}>
               <DataItem title="Distance" value={formatDistance(distance)} />
               <Divider variant="middle" orientation="vertical" flexItem />
