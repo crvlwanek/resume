@@ -1,7 +1,8 @@
-import { createTheme, PaletteMode } from "@mui/material"
+import { PaletteMode } from "@mui/material"
 
 export const colors = {
   white: "#FFFFFF",
+  black: "#000000",
   lightest: "#f6f5f5",
   darkest: "#1b1717",
   primary: "#00adb5",
@@ -56,8 +57,6 @@ declare module "@mui/material/styles/createPalette" {
   interface PaletteOptions {
     surface?: PaletteColorOptions
     imageOverlay?: PaletteColorOptions
-    // TODO: remove
-    dark?: PaletteColorOptions
   }
 }
 
@@ -67,7 +66,7 @@ declare module "@mui/material/AppBar" {
   }
 }
 
-export type ThemeColorOverride = "surface" | "imageOverlay" | "dark"
+export type ThemeColorOverride = "surface" | "imageOverlay"
 
 export type ThemeColor =
   | "inherit"
@@ -96,18 +95,13 @@ export const getDesignTokens = (mode: PaletteMode) => ({
       main: primary,
       contrastText: onPrimary,
     },
+    background: {
+      default: mode === "dark" ? colors.black : colors.gray[200],
+    },
     surface: {
       main: surface,
       contrastText: onSurface,
     },
-    background:
-      mode === "dark"
-        ? {
-            default: colors.gray[900],
-          }
-        : {
-            default: colors.gray[100],
-          },
     imageOverlay: {
       main: imageOverlay,
     },

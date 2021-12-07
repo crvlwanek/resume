@@ -1,20 +1,23 @@
 import * as React from "react"
 import { ThemeProvider } from "@emotion/react"
 import {
+  Box,
   createTheme,
   CssBaseline,
   PaletteMode,
+  Paper,
   useMediaQuery,
 } from "@mui/material"
 import { getDesignTokens } from "../../theme"
+import { MuiSxMixin } from "../../interfaces/mui"
 
 export const ColorModeContext = React.createContext({
   toggle: () => {},
 })
 
-interface PageWrapperProps {}
+interface BodyProps extends MuiSxMixin {}
 
-const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
+const Body: React.FC<BodyProps> = ({ children, sx }) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
   const [mode, setMode] = React.useState<PaletteMode>(
     prefersDarkMode ? "dark" : "light"
@@ -30,15 +33,20 @@ const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
     []
   )
 
-  const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode])
+  const theme = React.useMemo(
+    () => createTheme(getDesignTokens(mode)),
+    [mode, prefersDarkMode]
+  )
 
   return (
     <CssBaseline>
       <ColorModeContext.Provider value={colorMode}>
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <Paper sx={{ borderRadius: 0, ...sx }}>{children}</Paper>
+        </ThemeProvider>
       </ColorModeContext.Provider>
     </CssBaseline>
   )
 }
 
-export default PageWrapper
+export default Body

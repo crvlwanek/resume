@@ -78,15 +78,7 @@ const Strava: React.FC<StravaProps> = ({}) => {
   const { name, distance, moving_time, type, average_speed, start_date } = data
   const icon = getActivityType(type)
   return (
-    <Paper
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        bgcolor: "background.default",
-        borderRadius: 0,
-      }}
-    >
+    <Box display="flex" justifyContent="center">
       <Paper
         sx={{
           display: "flex",
@@ -123,7 +115,7 @@ const Strava: React.FC<StravaProps> = ({}) => {
         </Box>
         <PoweredByStrava className="stravaLogo" />
       </Paper>
-    </Paper>
+    </Box>
   )
 }
 

@@ -5,7 +5,7 @@ import ExpandableCard from "../components/common/ExpandableCard"
 import HeroSplash from "../components/common/HeroSplash"
 import IconBar from "../components/common/IconBar"
 import Navbar from "../components/common/Navbar"
-import PageWrapper from "../components/common/PageWrapper"
+import Body from "../components/common/Body"
 import AvatarTitleBlock from "../components/index/AvatarTitleBlock"
 import Footer from "../components/index/Footer/Footer"
 import Header from "../components/index/Header"
@@ -21,8 +21,8 @@ import Strava from "../components/index/Strava"
 import TitleBlock from "../components/index/TitleBlock"
 import useIsMobile, { useMediumDown } from "../hooks/useIsMobile"
 import useScrollPosition from "../hooks/useScrollPosition"
-import "../styles/styles.css"
-import { deskImage } from "../theme"
+import "../styles/index.css"
+import { colors, deskImage } from "../theme"
 
 const IndexPage = () => {
   const isMobile = useIsMobile()
@@ -57,7 +57,7 @@ const IndexPage = () => {
     <DarkModeToggle />
   )
   return (
-    <PageWrapper>
+    <Body sx={{ backgroundColor: "background.default" }}>
       <Navbar
         transparentAtTop
         color="surface"
@@ -83,45 +83,40 @@ const IndexPage = () => {
           <IconBar sx={{ zIndex: 3 }} />
         </MainTitleBox>
       </Header>
-      <Divider sx={{ bgcolor: "background.paper" }} />
-      <Paper sx={{ borderRadius: 0 }}>
-        <ExpandableCard
-          title="Health Dashboard"
-          content={<Strava />}
-          sx={{ display: "flex", justifyContent: "center", gap: 2 }}
-          titleVariant="h5"
-        />
-      </Paper>
-      <Paper
+      <Divider sx={{ bgcolor: "background" }} />
+      <ExpandableCard
+        title="Health Dashboard"
+        content={<Strava />}
         sx={{
           display: "flex",
-          alignItems: "center",
           justifyContent: "center",
-          bgcolor: "background.default",
-          borderRadius: 0,
+          gap: 2,
+          color: "text.primary",
         }}
+        titleVariant="h5"
+      />
+      <Grid
+        container
+        p="16px 0"
+        maxWidth={1200}
+        gap={2}
+        justifyContent="center"
+        m="auto"
       >
-        <Grid
-          container
-          p="16px 0"
-          maxWidth={1200}
-          gap={2}
-          justifyContent="center"
-        >
-          <Grid item md={4} sm={8} xs={12}>
-            <SectionGrid>
-              <WorkSection />
-              <EducationSection />
-              <SkillsSection />
-            </SectionGrid>
-          </Grid>
-          <Grid item md={7} sm={8} xs={12}>
-            <ProjectsSection />
-          </Grid>
+        <Grid item md={4} sm={8} xs={12}>
+          <SectionGrid>
+            <WorkSection />
+            <EducationSection />
+            <SkillsSection />
+          </SectionGrid>
         </Grid>
-      </Paper>
+        <Grid item md={7} sm={8} xs={12}>
+          <ProjectsSection />
+        </Grid>
+      </Grid>
+
       <Footer />
-    </PageWrapper>
+    </Body>
   )
 }
 export default IndexPage

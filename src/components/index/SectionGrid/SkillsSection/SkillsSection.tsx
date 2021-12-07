@@ -1,6 +1,7 @@
+import { Box, Chip, ListItem, Typography } from "@mui/material"
 import * as React from "react"
-import { Box, Chip, List, ListItem, Typography } from "@mui/material"
 import { Skill, skills } from "../../../../data"
+import CardList from "../../../common/CardList"
 import IndexDivider from "../../../common/IndexDivider"
 import GenericSection from "../GenericSection"
 
@@ -9,7 +10,7 @@ interface SkillsSectionProps {}
 const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
   return (
     <GenericSection name="skills">
-      <List disablePadding>
+      <CardList>
         {skills.map((skill: Skill, index) => (
           <div key={skill.name}>
             <IndexDivider index={index} />
@@ -41,7 +42,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </ListItem>
           </div>
         ))}
-      </List>
+      </CardList>
     </GenericSection>
   )
 }

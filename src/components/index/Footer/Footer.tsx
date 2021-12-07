@@ -14,7 +14,6 @@ const Footer: React.FC<FooterProps> = ({}) => {
       alignItems="center"
       justifyContent="center"
       p={5}
-      bgcolor="background.paper"
       color="text.primary"
     >
       <IconBar />
