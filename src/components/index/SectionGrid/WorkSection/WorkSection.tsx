@@ -22,7 +22,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({}) => {
               subtitle1={job.subtitle1}
               subtitle2={dateRange(job.startDate, job.endDate)}
               subtitle3={job.subtitle3}
-              DetailsComponent={<TextList items={job.details} />}
+              content={<TextList items={job.details} />}
             />
           </div>
         ))}

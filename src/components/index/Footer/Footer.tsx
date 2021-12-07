@@ -1,29 +1,29 @@
-import * as React from "react"
 import { Link, Stack, Typography } from "@mui/material"
+import * as React from "react"
 import { githubRepo } from "../../../data"
-import { footerColor, onSurface } from "../../../theme"
-import IconBar from "../../common/IconBar"
+import { onSurface } from "../../../theme"
 import smoothScroll from "../../../utils/smoothScroll"
+import IconBar from "../../common/IconBar"
 
 interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <Stack
-      bgcolor={footerColor}
       m="auto"
       alignItems="center"
       justifyContent="center"
       p={5}
+      bgcolor="background.paper"
+      color="text.primary"
     >
-      <IconBar color="dark" />
-      <Typography variant="body1" color={onSurface}>
+      <IconBar />
+      <Typography variant="body1">
         Chris VL-Wanek © {new Date().getFullYear()}
       </Typography>
       <Link
         underline="hover"
         href={githubRepo}
-        color={onSurface}
         target="_blank"
         rel="noreferrer"
       >
@@ -32,7 +32,6 @@ const Footer: React.FC<FooterProps> = ({}) => {
       <Link
         underline="hover"
         onClick={() => smoothScroll("home")}
-        color={onSurface}
         sx={{ cursor: "pointer" }}
       >
         Back to top

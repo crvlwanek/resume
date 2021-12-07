@@ -10,7 +10,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({}) => {
   const repos = ["resume", "digital-music", "leetcode"]
   const repoList = useGitHub("users/crvlwanek/repos")
   return (
-    <GenericSection name="Projects">
+    <GenericSection name="projects">
       {repos.map((repo, index) => (
         <div key={repo}>
           <IndexDivider index={index} />

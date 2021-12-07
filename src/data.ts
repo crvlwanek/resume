@@ -1,6 +1,7 @@
 import WorkIcon from "@mui/icons-material/Work"
 import SchoolIcon from "@mui/icons-material/School"
 import AssessmentIcon from "@mui/icons-material/Assessment"
+import AssignmentIcon from "@mui/icons-material/Assignment"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import GithubIcon from "@mui/icons-material/Github"
 import FacebookIcon from "@mui/icons-material/Facebook"
@@ -20,6 +21,7 @@ export const navbarMenu: NavbarMenu = [
   { name: "work", link: "#work", icon: WorkIcon },
   { name: "education", link: "#education", icon: SchoolIcon },
   { name: "skills", link: "#skills", icon: AssessmentIcon },
+  { name: "projects", link: "#projects", icon: AssignmentIcon },
 ]
 
 export interface TitleBlock {

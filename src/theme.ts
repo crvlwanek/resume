@@ -1,12 +1,24 @@
-import { createTheme } from "@mui/material"
+import { createTheme, PaletteMode } from "@mui/material"
 
-const colors = {
+export const colors = {
   white: "#FFFFFF",
   lightest: "#f6f5f5",
   darkest: "#1b1717",
   primary: "#00adb5",
   surface: "#f6f5f5",
   background: "#dddddd",
+  gray: {
+    50: "#fafafa",
+    100: "#f5f5f5",
+    200: "#eeeeee",
+    300: "#e0e0e0",
+    400: "#bdbdbd",
+    500: "#9e9e9e",
+    600: "#757575",
+    700: "#616161",
+    800: "#424242",
+    900: "#212121",
+  },
 }
 
 export const primary = colors.primary
@@ -15,7 +27,7 @@ export const onPrimary = colors.white
 export const surface = colors.lightest
 export const onSurface = colors.darkest
 
-export const background = colors.background
+export const background = colors.gray[100]
 export const onBackground = colors.darkest
 
 export const imageOverlay = colors.lightest
@@ -77,8 +89,9 @@ export type AppBarColor =
   | "transparent"
   | ThemeColorOverride
 
-const theme = createTheme({
+export const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
+    mode,
     primary: {
       main: primary,
       contrastText: onPrimary,
@@ -87,9 +100,14 @@ const theme = createTheme({
       main: surface,
       contrastText: onSurface,
     },
-    background: {
-      default: background,
-    },
+    background:
+      mode === "dark"
+        ? {
+            default: colors.gray[900],
+          }
+        : {
+            default: colors.gray[100],
+          },
     imageOverlay: {
       main: imageOverlay,
     },
@@ -179,5 +197,3 @@ const theme = createTheme({
     },
   },
 })
-
-export default theme

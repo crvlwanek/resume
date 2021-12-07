@@ -24,7 +24,7 @@ const EducationSection: React.FC<EducationSectionProps> = ({}) => {
               subtitle1={degree.degree}
               subtitle2={dateRange(degree.startDate, degree.endDate)}
               subtitle3={degree.location}
-              DetailsComponent={
+              content={
                 <>
                   <TextList items={degree.details} />
                   {degree.additionalDetails ? (

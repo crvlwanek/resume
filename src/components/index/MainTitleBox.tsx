@@ -7,7 +7,6 @@ interface MainTitleBoxProps {}
 
 const MainTitleBox: React.FC<MainTitleBoxProps> = ({ children }) => {
   const isMobile: boolean = useIsMobile()
-  const color = isMobile ? onSurface : imageOverlay
   const margin = isMobile ? "32px 0 0" : "auto"
   return (
     <Stack
@@ -17,7 +16,8 @@ const MainTitleBox: React.FC<MainTitleBoxProps> = ({ children }) => {
         position: "relative",
         height: "100%",
         margin,
-        color,
+        bgcolor: "background.paper",
+        color: isMobile ? "text.primary" : "white",
         p: 1,
       }}
     >

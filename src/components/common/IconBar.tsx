@@ -1,29 +1,25 @@
-import * as React from "react"
-
 import { Box, IconButton } from "@mui/material"
-
+import * as React from "react"
 import { SocialIcon, socialIcons } from "../../data"
-import { primaryHover, ThemeColor } from "../../theme"
-
 import useIsMobile from "../../hooks/useIsMobile"
+import { MuiSxMixin } from "../../interfaces/mui"
+import { primaryHover } from "../../theme"
 
-interface IconBarProps {
-  color: ThemeColor
-}
+interface IconBarProps extends MuiSxMixin {}
 
-const IconBar: React.FC<IconBarProps> = ({ color }) => {
+const IconBar: React.FC<IconBarProps> = ({ sx }) => {
   const isMobile: boolean = useIsMobile()
   return (
-    <Box>
+    <Box sx={sx}>
       {socialIcons.map((social: SocialIcon) => (
         <IconButton
-          color={color}
+          color="inherit"
           key={social.name}
           component="a"
           href={social.link}
           target="_blank"
           rel="noreferrer"
-          sx={{ ...primaryHover }}
+          sx={{ ...primaryHover, ...sx }}
           size={isMobile ? "small" : "medium"}
         >
           <social.icon />

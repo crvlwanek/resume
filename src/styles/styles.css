@@ -65,3 +65,10 @@
     flex-direction: column;
   }
 }
+
+.stravaLogo {
+  max-width: 150px;
+  margin-left: auto;
+  padding-bottom: 8px;
+  padding-right: 8px;
+}
