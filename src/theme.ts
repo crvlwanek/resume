@@ -154,6 +154,7 @@ export const getDesignTokens = (mode: PaletteMode) => ({
       fontWeight: 400,
       fontSize: "0.75rem",
       letterSpacing: "0.006rem",
+      color: "GrayText",
     },
     body1: {
       fontFamily: bodyFont,

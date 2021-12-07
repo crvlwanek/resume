@@ -1,5 +1,12 @@
 import * as React from "react"
-import { Box, Collapse, ListItemButton, Stack, Typography } from "@mui/material"
+import {
+  Box,
+  Collapse,
+  ListItemButton,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material"
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft"
 import useToggle from "../../hooks/useToggle"
@@ -13,6 +20,8 @@ interface ExpandableCardProps extends MuiSxMixin {
   subtitle2?: string
   subtitle3?: string
   content?: any
+  elevation?: number
+  paperbgcolor?: string
 }
 
 const ExpandableCard: React.FC<ExpandableCardProps> = ({
@@ -24,6 +33,8 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
   subtitle3,
   content,
   sx,
+  elevation = 0,
+  paperbgcolor = "transparent",
 }) => {
   const imageSize = 56
   const margin = 3
@@ -51,32 +62,33 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
     <Typography variant="subtitle1">{subtitle1}</Typography>
   ) : null
   const Subtitle2 = subtitle2 ? (
-    <Typography variant="subtitle2" color="GrayText">
-      {subtitle2}
-    </Typography>
+    <Typography variant="subtitle2">{subtitle2}</Typography>
   ) : null
   const Subtitle3 = subtitle3 ? (
-    <Typography variant="subtitle2" color="GrayText">
-      {subtitle3}
-    </Typography>
+    <Typography variant="subtitle2">{subtitle3}</Typography>
   ) : null
   return (
     <>
-      <ListItemButton
-        sx={{ justifyContent: "space-between", pl: 2, pt: 2, pb: 2, ...sx }}
-        onClick={toggleOpen}
+      <Paper
+        elevation={elevation}
+        sx={{ borderRadius: 0, bgcolor: paperbgcolor }}
       >
-        <Stack direction="row">
-          {Image}
-          <Box ml={margin}>
-            {Title}
-            {Subtitle1}
-            {Subtitle2}
-            {Subtitle3}
-          </Box>
-        </Stack>
-        {open ? <KeyboardArrowDownIcon /> : <KeyboardArrowLeftIcon />}
-      </ListItemButton>
+        <ListItemButton
+          sx={{ justifyContent: "space-between", pl: 2, pt: 2, pb: 2, ...sx }}
+          onClick={toggleOpen}
+        >
+          <Stack direction="row">
+            {Image}
+            <Box ml={margin}>
+              {Title}
+              {Subtitle1}
+              {Subtitle2}
+              {Subtitle3}
+            </Box>
+          </Stack>
+          {open ? <KeyboardArrowDownIcon /> : <KeyboardArrowLeftIcon />}
+        </ListItemButton>
+      </Paper>
       <Collapse in={open} timeout="auto">
         {content}
       </Collapse>

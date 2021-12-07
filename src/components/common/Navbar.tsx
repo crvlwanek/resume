@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({
     }, null)
   }
   const appBar__color = isTransparent ? "transparent" : color
-  const appBar__elevation = isTransparent ? 0 : 2
+  const appBar__elevation = isTransparent ? 0 : 5
   const appBar__sx_floating = isTransparent ? { color: "white" } : null
   return (
     <AppBar

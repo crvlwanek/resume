@@ -8,7 +8,7 @@ interface GenericSectionProps {
 
 const GenericSection: React.FC<GenericSectionProps> = ({ children, name }) => {
   return (
-    <Paper component="section" sx={{ width: "100%" }}>
+    <Paper component="section" elevation={3} sx={{ width: "100%" }}>
       <a id={name} style={{ position: "relative", top: "-55px" }}></a>
       <Typography variant="h5" p={2}>
         {name[0].toUpperCase() + name.slice(1)}

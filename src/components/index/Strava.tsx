@@ -60,7 +60,7 @@ interface DataItemProps {
 const DataItem: React.FC<DataItemProps> = ({ title, value }) => {
   return (
     <Box display="flex" flexDirection="column">
-      <Typography variant="subtitle2">{title}</Typography>
+      <Typography variant="subtitle1">{title}</Typography>
       <Typography variant="h5">{value}</Typography>
     </Box>
   )
@@ -80,6 +80,7 @@ const Strava: React.FC<StravaProps> = ({}) => {
   return (
     <Box display="flex" justifyContent="center">
       <Paper
+        elevation={3}
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -87,30 +88,33 @@ const Strava: React.FC<StravaProps> = ({}) => {
           justifyContent: "center",
           m: 2,
           borderRadius: 1,
-          boxShadow: 2,
+
           maxWidth: 400,
         }}
       >
-        <Box px={2} pt={2}>
-          <Typography variant="h5">Most Recent Activity</Typography>
-          <Box display="flex" flexDirection="row" alignItems="center">
-            {icon}
-            <Typography variant="subtitle1">
+        <Box>
+          <Box px={2} py={1}>
+            <Typography variant="h5">Most Recent Activity</Typography>
+            <Typography variant="subtitle2">
               {formatDate(start_date)}
             </Typography>
           </Box>
-          <Box display="flex">
-            <Typography variant="h6">{name}</Typography>
-          </Box>
-          <Box display="flex" gap={2}>
-            <DataItem title="Distance" value={formatDistance(distance)} />
-            <Divider variant="middle" orientation="vertical" flexItem />
-            <DataItem
-              title="Pace"
-              value={metersPerSecondToMinutesPerMile(average_speed)}
-            />
-            <Divider variant="middle" orientation="vertical" flexItem />
-            <DataItem title="Time" value={formatTime(moving_time)} />
+          <Divider />
+          <Box px={2} py={1}>
+            <Box display="flex" flexDirection="row" alignItems="center">
+              {icon}
+              <Typography variant="h5">{name}</Typography>
+            </Box>
+            <Box display="flex" gap={2}>
+              <DataItem title="Distance" value={formatDistance(distance)} />
+              <Divider variant="middle" orientation="vertical" flexItem />
+              <DataItem
+                title="Pace"
+                value={metersPerSecondToMinutesPerMile(average_speed)}
+              />
+              <Divider variant="middle" orientation="vertical" flexItem />
+              <DataItem title="Time" value={formatTime(moving_time)} />
+            </Box>
           </Box>
         </Box>
         <PoweredByStrava className="stravaLogo" />

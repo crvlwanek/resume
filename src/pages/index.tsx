@@ -83,10 +83,11 @@ const IndexPage = () => {
           <IconBar sx={{ zIndex: 3 }} />
         </MainTitleBox>
       </Header>
-      <Divider sx={{ bgcolor: "background" }} />
       <ExpandableCard
         title="Health Dashboard"
         content={<Strava />}
+        elevation={3}
+        paperbgcolor="background.paper"
         sx={{
           display: "flex",
           justifyContent: "center",
