@@ -2,6 +2,7 @@ import * as React from "react"
 import { SvgIconComponent } from "@mui/icons-material"
 import { List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
 import { primaryHover } from "../../theme"
+import smoothScroll from "../../utils/smoothScroll"
 
 export interface IconLink {
   name: string
@@ -13,12 +14,14 @@ interface NavListProps {
   direction?: "column" | "row"
   items: IconLink[]
   padded?: boolean
+  toggleMenu?: () => void
 }
 
 const NavList: React.FC<NavListProps> = ({
   direction = "column",
   items,
   padded,
+  toggleMenu,
 }) => {
   return (
     <nav>
@@ -28,7 +31,10 @@ const NavList: React.FC<NavListProps> = ({
             key={item.name}
             href={item.link}
             sx={{ color: "inherit", ...primaryHover }}
-            component="a"
+            onClick={() => {
+              smoothScroll(`${item.name}`)
+              toggleMenu && toggleMenu()
+            }}
           >
             <ListItemIcon
               sx={{ color: "inherit", minWidth: padded ? null : 0, mr: 1 }}

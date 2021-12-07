@@ -21,7 +21,7 @@ const MobileMenu: React.FC<MobileMenuProps> = () => {
         subheaderVariant="subtitle1"
       />
       <Divider />
-      <NavList items={navbarMenu} padded />
+      <NavList toggleMenu={toggleOpen} items={navbarMenu} padded />
     </NavDrawer>
   )
 }

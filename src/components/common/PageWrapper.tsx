@@ -1,6 +1,11 @@
 import * as React from "react"
 import { ThemeProvider } from "@emotion/react"
-import { createTheme, CssBaseline, PaletteMode } from "@mui/material"
+import {
+  createTheme,
+  CssBaseline,
+  PaletteMode,
+  useMediaQuery,
+} from "@mui/material"
 import { getDesignTokens } from "../../theme"
 
 export const ColorModeContext = React.createContext({
@@ -10,7 +15,10 @@ export const ColorModeContext = React.createContext({
 interface PageWrapperProps {}
 
 const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
-  const [mode, setMode] = React.useState<PaletteMode>("light")
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
+  const [mode, setMode] = React.useState<PaletteMode>(
+    prefersDarkMode ? "dark" : "light"
+  )
   const colorMode = React.useMemo(
     () => ({
       toggle: () => {

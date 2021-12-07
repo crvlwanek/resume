@@ -111,10 +111,6 @@ export const getDesignTokens = (mode: PaletteMode) => ({
     imageOverlay: {
       main: imageOverlay,
     },
-    // TODO: find a better solution
-    dark: {
-      main: onSurface,
-    },
   },
   typography: {
     h1: {
