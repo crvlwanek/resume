@@ -37,5 +37,12 @@ module.exports = {
     "react",
     "react-dom",
     "gatsby-image",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Chris Van Lanen-Wanek - Software Engineer | Web Developer`,
+        icon: `src/images/gatsby-icon.png`,
+      },
+    },
   ],
 }
