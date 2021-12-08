@@ -95,7 +95,7 @@ const GitHubRepo: React.FC<GitHubRepoProps> = ({ name, user }) => {
         ))}
       </Box>
       <Box width="min(400px, 100%)">
-        <Box display="flex" borderRadius="20px">
+        <Box display="flex" borderRadius="20px" overflow="hidden">
           {Object.keys(percentages || {})?.map(percent => (
             <Box
               width={percentages[percent]}

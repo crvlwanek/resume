@@ -1,54 +1,23 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# Chris Van Lanen-Wanek's Resume
 
-## 🚀 Quick start
+This is a resume website created using [Gatsby](https://www.gatsbyjs.com/) and deployed to [GitHub Pages](https://crvlwanek.github.io/resume/). The majority of the project is in Typescript React and uses Material UI for basic components as well as their theming framework.
 
-1.  **Create a Gatsby site.**
+## APIs
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+The website uses a number of APIs to query for data to display to the user
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+### [GitHub](https://docs.github.com/en/rest)
 
-2.  **Start developing.**
+Under the [Projects](https://crvlwanek.github.io/resume/#projects) section you can see a list of featured projects that I have worked on. The information about these projects is populated with data fetched from the GitHub API so any changes made to these repositories will show up when the page is refreshed.
 
-    Navigate into your new site’s directory and start it up.
+### [Strava](https://developers.strava.com/)
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+Under the "Health Dashboard" expandable card, you can view information about my most recent workout. This information is provided by the Strava API and is cached and updated every 5 minutes
 
-3.  **Open the code and start customizing!**
+### [AWS Lambda](https://aws.amazon.com/lambda/)
 
-    Your site is now running at http://localhost:8000!
+In order to access the Strava API from a static site and do so without giving away any API keys, I created a cloud function on AWS Lambda that caches my Strava API calls and if the data is stale, makes a request for new data
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+### [Pantry](https://getpantry.cloud/)
 
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+Pantry is a very simple and lightweight API that lets you store small amounts of JSON data. As part of my Lambda function, whenever I receive data from Strava I cache it using the Pantry API. Then at the begining of the Lambda function if my cached activity data is less than 5 minutes old I simply return that data to keep from ever going over the Strava API usage limit

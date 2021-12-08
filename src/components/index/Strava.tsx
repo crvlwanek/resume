@@ -35,7 +35,7 @@ const getActivityType = (type: string) => {
     case "Ride":
       return <DirectionsBikeIcon />
     case "Run":
-      return <DirectionsRunIcon />
+      return <DirectionsRunIcon sx={{ height: "20px", ml: "4px" }} />
     case "Walk":
       return <DirectionsWalkIcon />
     default:
@@ -78,48 +78,49 @@ const Strava: React.FC<StravaProps> = ({}) => {
   const { name, distance, moving_time, type, average_speed, start_date } = data
   const icon = getActivityType(type)
   return (
-    <Box display="flex" justifyContent="center">
-      <Paper
-        elevation={3}
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          justifyContent: "center",
-          m: 2,
-          borderRadius: 1,
-
-          maxWidth: 400,
-        }}
-      >
-        <Box>
-          <Box px={2} py={1}>
-            <Box display="flex" flexDirection="row" alignItems="center">
-              {icon}
-              <Box ml={1}>
-                <Typography variant="h5">{name}</Typography>
-                <Typography variant="subtitle2">
-                  {formatDate(start_date)}
-                </Typography>
+    <Box display="flex" justifyContent="center" mt={1}>
+      <Box display="flex" flexDirection="column">
+        <Typography variant="subtitle1">Most Recent Activity</Typography>
+        <Paper
+          elevation={3}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            borderRadius: 1,
+            maxWidth: 400,
+          }}
+        >
+          <Box>
+            <Box px={2} py={1}>
+              <Box display="flex" flexDirection="row" alignItems="center">
+                {/*icon*/}
+                <Box ml={0}>
+                  <Typography variant="h5">{name}</Typography>
+                  <Typography variant="subtitle2">
+                    {formatDate(start_date)}
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+            <Divider />
+            <Box px={2} py={1}>
+              <Box display="flex" gap={2}>
+                <DataItem title="Distance" value={formatDistance(distance)} />
+                <Divider variant="middle" orientation="vertical" flexItem />
+                <DataItem
+                  title="Pace"
+                  value={metersPerSecondToMinutesPerMile(average_speed)}
+                />
+                <Divider variant="middle" orientation="vertical" flexItem />
+                <DataItem title="Time" value={formatTime(moving_time)} />
               </Box>
             </Box>
           </Box>
-          <Divider />
-          <Box px={2} py={1}>
-            <Box display="flex" gap={2}>
-              <DataItem title="Distance" value={formatDistance(distance)} />
-              <Divider variant="middle" orientation="vertical" flexItem />
-              <DataItem
-                title="Pace"
-                value={metersPerSecondToMinutesPerMile(average_speed)}
-              />
-              <Divider variant="middle" orientation="vertical" flexItem />
-              <DataItem title="Time" value={formatTime(moving_time)} />
-            </Box>
-          </Box>
-        </Box>
-        <PoweredByStrava className="stravaLogo" />
-      </Paper>
+          <PoweredByStrava className="stravaLogo" />
+        </Paper>
+      </Box>
     </Box>
   )
 }
