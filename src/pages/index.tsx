@@ -65,46 +65,44 @@ const IndexPage = () => {
         centerContent={navbar__centerContent}
         rightContent={navbar__rightConent}
       />
-      <Header height="stretch">
-        <HeroSplash
-          src={deskImage}
-          height="100%"
-          sx={{ zIndex: 2, p: isMobile ? 7 : 10 }}
-        >
-          <MainTitleBox>
-            <AvatarTitleBlock
-              boxSx={{ textAlign: "center", zIndex: 2 }}
-              avatarSize={isMobile ? "min(200px, 90vw)" : "18rem"}
-              avatarSx={{ margin: "auto" }}
-              headerSx={{ mt: 1 }}
-              subheaderSx={{ fontWeight: 200 }}
-              titleRef={titleRef}
-            />
-            <IconBar sx={{ zIndex: 3 }} />
-            <Stack direction="row" gap={2} p={1} sx={{ textShadow: "none" }}>
-              <Button
-                variant="contained"
-                color="surface"
-                href="https://github.com/crvlwanek/wordle"
-                startIcon={<GitHubIcon />}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Wordle
-              </Button>
-              <Button
-                variant="contained"
-                href="https://www.tiktok.com/@crvlwanek"
-                startIcon={<TikTokIcon />}
-                target="_blank"
-                rel="noreferrer"
-              >
-                TikTok
-              </Button>
-            </Stack>
-          </MainTitleBox>
-        </HeroSplash>
-      </Header>
+      <HeroSplash
+        src={deskImage}
+        height={isMobile ? "100%" : "100vh"}
+        sx={{ zIndex: 2, pt: 4 }}
+      >
+        <MainTitleBox>
+          <AvatarTitleBlock
+            boxSx={{ textAlign: "center", zIndex: 2 }}
+            avatarSize={isMobile ? "min(200px, 90vw)" : "18rem"}
+            avatarSx={{ margin: "auto" }}
+            headerSx={{ mt: 1 }}
+            subheaderSx={{ fontWeight: 200 }}
+            titleRef={titleRef}
+          />
+          <IconBar sx={{ zIndex: 3 }} />
+          <Stack direction="row" gap={2} p={1} sx={{ textShadow: "none" }}>
+            <Button
+              variant="contained"
+              color="surface"
+              href="https://github.com/crvlwanek/wordle"
+              startIcon={<GitHubIcon />}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Wordle
+            </Button>
+            <Button
+              variant="contained"
+              href="https://www.tiktok.com/@crvlwanek"
+              startIcon={<TikTokIcon />}
+              target="_blank"
+              rel="noreferrer"
+            >
+              TikTok
+            </Button>
+          </Stack>
+        </MainTitleBox>
+      </HeroSplash>
       <ExpandableCard
         title="Health Dashboard"
         content={<Strava />}
