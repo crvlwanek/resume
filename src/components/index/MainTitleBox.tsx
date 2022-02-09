@@ -8,15 +8,22 @@ const MainTitleBox: React.FC<MainTitleBoxProps> = ({ children }) => {
   const isMobile: boolean = useIsMobile()
   const padding = isMobile ? "32px 0 0" : "auto"
   return (
-    <Paper elevation={3} sx={{ height: "100%", borderRadius: 0, padding }}>
+    <Paper
+      sx={{
+        height: "100%",
+        borderRadius: 0,
+        padding,
+        background: "transparent",
+      }}
+    >
       <Stack
         sx={{
           alignItems: "center",
           justifyContent: "center",
           position: "relative",
           height: "inherit",
-          color: isMobile ? "text.primary" : "white",
           p: 1,
+          color: "white",
         }}
       >
         {children}

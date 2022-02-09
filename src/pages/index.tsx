@@ -1,11 +1,11 @@
-import { Box, Divider, Grid, Paper, Slide } from "@mui/material"
+import { Box, Button, Grid, Slide, Stack } from "@mui/material"
 import * as React from "react"
+import Body from "../components/common/Body"
 import DarkModeToggle from "../components/common/DarkModeToggle"
 import ExpandableCard from "../components/common/ExpandableCard"
 import HeroSplash from "../components/common/HeroSplash"
 import IconBar from "../components/common/IconBar"
 import Navbar from "../components/common/Navbar"
-import Body from "../components/common/Body"
 import AvatarTitleBlock from "../components/index/AvatarTitleBlock"
 import Footer from "../components/index/Footer/Footer"
 import Header from "../components/index/Header"
@@ -21,8 +21,10 @@ import Strava from "../components/index/Strava"
 import TitleBlock from "../components/index/TitleBlock"
 import useIsMobile, { useMediumDown } from "../hooks/useIsMobile"
 import useScrollPosition from "../hooks/useScrollPosition"
+import GitHubIcon from "@mui/icons-material/GitHub"
+import TikTokIcon from "../svg/TikTokIcon"
 import "../styles/index.css"
-import { colors, deskImage } from "../theme"
+import { deskImage } from "../theme"
 
 const IndexPage = () => {
   const isMobile = useIsMobile()
@@ -47,8 +49,6 @@ const IndexPage = () => {
       </Box>
     </Slide>
   )
-  const header__height = isMobile ? "auto" : "100vh"
-  const splashImage__height = isMobile ? "min(200px, 90vw)" : "100vh"
   const navbar__leftContent = isMediumDown ? <MobileMenu /> : titleContent
   const navbar__centerContent = isMediumDown ? titleContent : null
   const navbar__rightConent = !isMediumDown ? (
@@ -65,23 +65,45 @@ const IndexPage = () => {
         centerContent={navbar__centerContent}
         rightContent={navbar__rightConent}
       />
-      <Header height={header__height}>
+      <Header height="stretch">
         <HeroSplash
           src={deskImage}
-          height={splashImage__height}
-          sx={{ position: "absolute", zIndex: 2 }}
-        />
-        <MainTitleBox>
-          <AvatarTitleBlock
-            boxSx={{ textAlign: "center", zIndex: 2 }}
-            avatarSize={isMobile ? "min(200px, 90vw)" : "18rem"}
-            avatarSx={{ margin: "auto" }}
-            headerSx={{ mt: 1 }}
-            subheaderSx={{ fontWeight: 200 }}
-            titleRef={titleRef}
-          />
-          <IconBar sx={{ zIndex: 3 }} />
-        </MainTitleBox>
+          height="100%"
+          sx={{ zIndex: 2, p: isMobile ? 7 : 10 }}
+        >
+          <MainTitleBox>
+            <AvatarTitleBlock
+              boxSx={{ textAlign: "center", zIndex: 2 }}
+              avatarSize={isMobile ? "min(200px, 90vw)" : "18rem"}
+              avatarSx={{ margin: "auto" }}
+              headerSx={{ mt: 1 }}
+              subheaderSx={{ fontWeight: 200 }}
+              titleRef={titleRef}
+            />
+            <IconBar sx={{ zIndex: 3 }} />
+            <Stack direction="row" gap={2} p={1} sx={{ textShadow: "none" }}>
+              <Button
+                variant="contained"
+                color="surface"
+                href="https://github.com/crvlwanek/wordle"
+                startIcon={<GitHubIcon />}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Wordle
+              </Button>
+              <Button
+                variant="contained"
+                href="https://www.tiktok.com/@crvlwanek"
+                startIcon={<TikTokIcon />}
+                target="_blank"
+                rel="noreferrer"
+              >
+                TikTok
+              </Button>
+            </Stack>
+          </MainTitleBox>
+        </HeroSplash>
       </Header>
       <ExpandableCard
         title="Health Dashboard"
