@@ -38,6 +38,10 @@ const Body: React.FC<BodyProps> = ({ children, sx }) => {
     [mode, prefersDarkMode]
   )
 
+  React.useEffect(() => {
+    setMode(prefersDarkMode ? "dark" : "light")
+  }, [prefersDarkMode])
+
   return (
     <CssBaseline>
       <ColorModeContext.Provider value={colorMode}>
